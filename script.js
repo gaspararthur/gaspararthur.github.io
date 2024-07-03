@@ -31,4 +31,12 @@ document.getElementById('links').innerHTML = `
             Instagram
         </div>
     </a>
+        <a class="link" href="http://lattes.cnpq.br/1517261797918288" target="_blank">
+        <div class="link-icon" style="background-color: #009aa6;">
+            <i class="fa-brands fa-lattes"></i>
+        </div>
+        <div class="link-name">
+            Lattes
+        </div>
+    </a>
 `;
