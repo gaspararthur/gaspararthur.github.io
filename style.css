@@ -1,0 +1,84 @@
+body,
+html {
+    font-family: 'Roboto', sans-serif;
+    background-color: #020202;
+    color: #e7e7e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    max-width: 500px;
+    margin: 10px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+#name {
+    margin: 0;
+    font-size: 2em; /* Aumenta o tamanho do nome */
+}
+
+#bio {
+    text-align: center;
+    font-size: 1.5em; /* Aumenta o tamanho da frase "16 anos de idade" */
+}
+
+.intro {
+    text-align: center;
+    font-size: 1.2em; /* Aumenta a informação sobre você */
+    margin: 20px;
+}
+
+#links {
+    display: grid;
+    gap: 1rem;
+}
+
+.link {
+    display: flex;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    transition: filter 0.3s;
+}
+
+.link:hover {
+    filter: brightness(120%);
+}
+
+.link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px; /* Diminui o tamanho das logos */
+    font-size: 120%;
+    padding: 5px;
+    margin-right: 3px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.link-name {
+    flex: 1;
+    padding: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: #363636;
+}
