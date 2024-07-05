@@ -7,7 +7,7 @@ document.getElementById('links').innerHTML = `
             GitHub
         </div>
     </a>
-    <a class="link" href="https://www.linkedin.com/in/arthur-santana-293b7a251/" target="_blank">
+    <a class="link" href="https://www.linkedin.com/in/arthur-santana-gaspar-lima-293b7a251/" target="_blank">
         <div class="link-icon" style="background-color: #0077B5;">
             <i class="fa-brands fa-linkedin"></i>
         </div>
