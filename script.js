@@ -16,11 +16,11 @@ document.getElementById('links').innerHTML = `
         </div>
     </a>
     <a class="link" href="https://x.com/ogaspar__" target="_blank">
-        <div class="link-icon" style="background-color: #1DA1F2;">
+        <div class="link-icon" style="background-color: #333;">
             <i class="fa-brands fa-x-twitter"></i>
         </div>
         <div class="link-name">
-            Twitter
+            X
         </div>
     </a>
     <a class="link" href="https://www.instagram.com/gaspar.arthur_/?theme=dark" target="_blank">
