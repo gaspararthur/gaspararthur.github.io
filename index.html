@@ -1,25 +1,80 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-bs-theme="dark">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arthur Santana Gaspar Lima</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Arthur Gaspar</title>
+
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Perfil de Arthur Gaspar — estudante do IFMA, entusiasta de programação.">
+    <meta property="og:title" content="Arthur Gaspar">
+    <meta property="og:description" content="Estudante do IFMA, entusiasta de programação em Python, Java e JavaScript.">
+    <meta property="og:image" content="foto2.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23009aa6'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' font-family='sans-serif' fill='white'>A</text></svg>">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <main>
         <header>
-            <img id="avatar" src="foto2.png" alt="Foto de Arthur">
-            <h1 id="name">Arthur Santana Gaspar Lima</h1>
+            <img id="avatar" src="foto2.png" alt="Foto de Arthur Gaspar">
+            <h1 id="name">Arthur Gaspar</h1>
+            <p class="subtitle">Arthur Santana Gaspar Lima</p>
         </header>
-        <div class="intro">
-            Estudante do Curso Técnico Integrado em Química do Instituto Federal do Maranhão, 18 anos de idade. Entusiasta na área de programação, com conhecimento superficial de Python, Java e Js.
-        </div>
-        <div id="links"></div>
+
+        <p class="intro">
+            Estudante de Técnico Integrado em Química no IFMA, com interesse em programação. 
+            Desenvolvo projetos em Python, Java e JavaScript.
+        </p>
+
+        <nav id="links" aria-label="Redes sociais e perfis">
+            <a class="link" href="https://github.com/gaspararthur" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Arthur Gaspar">
+                <div class="link-icon" style="background-color: #333;">
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </div>
+                <span class="link-name">GitHub</span>
+            </a>
+
+            <a class="link" href="https://www.linkedin.com/in/arthur-santana-gaspar-lima-293b7a251/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Arthur Gaspar">
+                <div class="link-icon" style="background-color: #0077B5;">
+                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                </div>
+                <span class="link-name">LinkedIn</span>
+            </a>
+
+            <a class="link" href="https://x.com/ogaspar__" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Arthur Gaspar">
+                <div class="link-icon" style="background-color: #1a1a1a;">
+                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                </div>
+                <span class="link-name">X (Twitter)</span>
+            </a>
+
+            <a class="link" href="https://www.instagram.com/gaspar.arthur_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Gaspar">
+                <div class="link-icon" style="background-color: #E4405F;">
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                </div>
+                <span class="link-name">Instagram</span>
+            </a>
+
+            <a class="link" href="http://lattes.cnpq.br/1517261797918288" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Gaspar">
+                <div class="link-icon" style="background-color: #009aa6;">
+                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                </div>
+                <span class="link-name">Currículo Lattes</span>
+            </a>
+        </nav>
     </main>
+
     <script src="script.js"></script>
 </body>
 </html>
