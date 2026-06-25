@@ -1,181 +1,176 @@
-// ─── Canvas Background: Química + Programação ───────────────────────────────
+// ─── Animação de fundo: Química + Programação ───────────────────────────────
+
 (function () {
-  const canvas = document.createElement('canvas');
-  canvas.id = 'bg-canvas';
-  canvas.style.position = 'fixed';
-  canvas.style.top = '0';
-  canvas.style.left = '0';
-  canvas.style.width = '100%';
-  canvas.style.height = '100%';
-  canvas.style.zIndex = '-1';
-  canvas.style.pointerEvents = 'none';
-  document.body.insertBefore(canvas, document.body.firstChild);
+  const canvas = document.getElementById('bg-canvas');
+  const ctx    = canvas.getContext('2d');
+  const btn    = document.getElementById('anim-toggle');
+  const icon   = btn.querySelector('i');
 
-  const ctx = canvas.getContext('2d');
-  let W, H, particles, molecules, codeParticles;
+  // ── Estado ───────────────────────────────────────────────────
+  let running = true;
+  let rafId   = null;
 
-  const codeSymbols = ['01','10','{ }','</>','=>','[ ]','def','for','if','λ','#','//'];
-  const chemSymbols = ['H₂O','CO₂','CH₄','NH₃','O₂','NaCl','C₆H₁₂O₆','HCl'];
-
+  // ── Redimensionamento ────────────────────────────────────────
   function resize() {
-    W = canvas.width  = window.innerWidth;
-    H = canvas.height = window.innerHeight;
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // ── Conjuntos de símbolos ────────────────────────────────────
+  const CHEM_FORMULAS  = ['H₂O','CO₂','C₆H₆','CH₄','NaCl','H₂SO₄','O₂','N₂','NH₃','HCl','C₂H₅OH','H₂O₂','CaCO₃','NO₂','KMnO₄'];
+  const ELEMENTS       = ['H','C','N','O','Na','Cl','Fe','Au','Ag','Cu','Mg','Ca','K','P','S','Si','He','Li','B','F','Zn','Br'];
+  const CODE_SNIPPETS  = ['def','import','class','for()','while','print()','{}','[]','//','const','return','if','int','None','True','False','list()','range()','len()','map()','self','null','void','new','#!','()','</>','&&'];
+  const MATH_SYMBOLS   = ['∑','Δ','∞','≡','∫','π','√','∂','≈','λ','μ','σ'];
+
+  const COLOR_CHEM    = '#009aa6';
+  const COLOR_ELEMENT = '#00c4d1';
+  const COLOR_CODE    = '#7c3aed';
+  const COLOR_SHAPE   = '#009aa6';
+
+  const TOTAL = 65;
+
+  // ── Utilitários ──────────────────────────────────────────────
+  function rand(min, max) { return min + Math.random() * (max - min); }
+  function pick(arr)       { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  // ── Cria uma partícula ───────────────────────────────────────
+  function createParticle(scatter) {
+    const roll = Math.random();
+    let type, text, color;
+
+    if (roll < 0.18) {
+      type = 'formula';  text = pick(CHEM_FORMULAS); color = COLOR_CHEM;
+    } else if (roll < 0.36) {
+      type = 'element';  text = pick(ELEMENTS);       color = COLOR_ELEMENT;
+    } else if (roll < 0.60) {
+      type = 'code';     text = pick(CODE_SNIPPETS);  color = COLOR_CODE;
+    } else if (roll < 0.70) {
+      type = 'math';     text = pick(MATH_SYMBOLS);   color = COLOR_SHAPE;
+    } else if (roll < 0.83) {
+      type = 'benzene';  text = null;                 color = COLOR_SHAPE;
+    } else {
+      type = 'atom';     text = null;                 color = COLOR_SHAPE;
+    }
+
+    return {
+      x:           rand(0, canvas.width),
+      y:           scatter ? rand(-canvas.height, canvas.height) : canvas.height + rand(10, 60),
+      vy:          -rand(0.18, 0.52),
+      vx:          (Math.random() - 0.5) * 0.25,
+      opacity:     rand(0.07, 0.20),
+      fontSize:    type === 'element' ? rand(11, 22) : rand(11, 17),
+      size:        rand(10, 20),
+      type, text, color,
+      wobble:      rand(0, Math.PI * 2),
+      wobbleSpeed: rand(0.008, 0.022),
+      wobbleAmp:   rand(0.15, 0.70),
+    };
   }
 
-  // ── Partícula de ponto ──
-  function makeParticle() {
-    var p = {};
-    function reset() {
-      p.x  = Math.random() * W;
-      p.y  = Math.random() * H;
-      p.r  = Math.random() * 2 + 0.5;
-      p.vx = (Math.random() - 0.5) * 0.35;
-      p.vy = (Math.random() - 0.5) * 0.35;
-      p.a  = Math.random() * 0.35 + 0.08;
-      p.teal = Math.random() > 0.45;
+  const particles = Array.from({ length: TOTAL }, () => createParticle(true));
+
+  // ── Desenho: anel de benzeno ─────────────────────────────────
+  function drawBenzene(p) {
+    const { x, y, size, opacity, color } = p;
+    ctx.save();
+    ctx.globalAlpha  = opacity;
+    ctx.strokeStyle  = color;
+    ctx.lineWidth    = 1;
+    ctx.beginPath();
+    for (let i = 0; i < 6; i++) {
+      const a = (i * Math.PI / 3) - Math.PI / 6;
+      const px = x + size * Math.cos(a);
+      const py = y + size * Math.sin(a);
+      i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
     }
-    reset();
-    p.update = function() {
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0 || p.x > W || p.y < 0 || p.y > H) reset();
-    };
-    p.draw = function() {
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = p.teal
-        ? 'rgba(0,154,166,' + p.a + ')'
-        : 'rgba(200,220,230,' + p.a + ')';
-      ctx.fill();
-    };
-    return p;
+    ctx.closePath();
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(x, y, size * 0.50, 0, Math.PI * 2);
+    ctx.stroke();
+    ctx.restore();
   }
 
-  // ── Molécula ──
-  function makeMolecule() {
-    var m = {};
-    function reset() {
-      m.x       = Math.random() * W;
-      m.y       = Math.random() * H;
-      m.ne      = Math.floor(Math.random() * 3) + 2;
-      m.orb     = Math.random() * 22 + 16;
-      m.angles  = [];
-      for (var i = 0; i < m.ne; i++) m.angles.push((i / m.ne) * Math.PI * 2);
-      m.speed   = (Math.random() * 0.008 + 0.004) * (Math.random() > 0.5 ? 1 : -1);
-      m.a       = Math.random() * 0.20 + 0.06;
-      m.vx      = (Math.random() - 0.5) * 0.15;
-      m.vy      = (Math.random() - 0.5) * 0.15;
-      m.sym     = chemSymbols[Math.floor(Math.random() * chemSymbols.length)];
-    }
-    reset();
-    m.update = function() {
-      for (var i = 0; i < m.angles.length; i++) m.angles[i] += m.speed;
-      m.x += m.vx; m.y += m.vy;
-      if (m.x < -80 || m.x > W + 80 || m.y < -80 || m.y > H + 80) reset();
-    };
-    m.draw = function() {
-      var a = m.a;
-      // núcleo
+  // ── Desenho: átomo ───────────────────────────────────────────
+  function drawAtom(p) {
+    const { x, y, size, opacity, color } = p;
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.strokeStyle = color;
+    ctx.lineWidth   = 1;
+    ctx.beginPath();
+    ctx.arc(x, y, size * 0.13, 0, Math.PI * 2);
+    ctx.fillStyle = color;
+    ctx.fill();
+    for (let i = 0; i < 3; i++) {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(i * (Math.PI / 3));
+      ctx.scale(1, 0.38);
       ctx.beginPath();
-      ctx.arc(m.x, m.y, 5, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0,154,166,' + (a * 1.4) + ')';
-      ctx.fill();
-      // órbita elíptica
-      ctx.beginPath();
-      ctx.ellipse(m.x, m.y, m.orb, m.orb * 0.42, Math.PI / 4, 0, Math.PI * 2);
-      ctx.strokeStyle = 'rgba(0,154,166,' + (a * 0.55) + ')';
-      ctx.lineWidth = 0.6;
+      ctx.arc(0, 0, size, 0, Math.PI * 2);
       ctx.stroke();
-      // elétrons
-      for (var i = 0; i < m.angles.length; i++) {
-        var ex = m.x + Math.cos(m.angles[i]) * m.orb;
-        var ey = m.y + Math.sin(m.angles[i]) * m.orb * 0.42;
-        ctx.beginPath();
-        ctx.arc(ex, ey, 2, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(180,240,255,' + (a * 1.2) + ')';
-        ctx.fill();
-      }
-      // fórmula química
-      var fs = Math.max(7, Math.round(m.orb * 0.38));
-      ctx.font = 'bold ' + fs + 'px sans-serif';
-      ctx.fillStyle = 'rgba(0,210,230,' + (a * 1.1) + ')';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(m.sym, m.x, m.y + m.orb * 1.6);
-    };
-    return m;
-  }
-
-  // ── Símbolo de código flutuante ──
-  function makeCode() {
-    var c = {};
-    function reset() {
-      c.x    = Math.random() * W;
-      c.y    = Math.random() * H;
-      c.vy   = -(Math.random() * 0.3 + 0.1);
-      c.vx   = (Math.random() - 0.5) * 0.1;
-      c.a    = Math.random() * 0.20 + 0.06;
-      var pool = Math.random() > 0.45 ? codeSymbols : chemSymbols;
-      c.text = pool[Math.floor(Math.random() * pool.length)];
-      c.size = Math.random() * 5 + 8;
-      c.life = 1;
+      ctx.restore();
     }
-    reset();
-    c.update = function() {
-      c.x += c.vx; c.y += c.vy;
-      c.life -= 0.0012;
-      if (c.life <= 0 || c.y < -20) reset();
-    };
-    c.draw = function() {
-      ctx.font = c.size + 'px monospace';
-      ctx.fillStyle = 'rgba(0,180,190,' + (c.a * c.life) + ')';
-      ctx.textAlign = 'left';
-      ctx.textBaseline = 'top';
-      ctx.fillText(c.text, c.x, c.y);
-    };
-    return c;
+    ctx.restore();
   }
 
-  function drawConnections() {
-    var maxD = 90;
-    for (var i = 0; i < particles.length; i++) {
-      for (var j = i + 1; j < particles.length; j++) {
-        var dx = particles[i].x - particles[j].x;
-        var dy = particles[i].y - particles[j].y;
-        var d  = Math.sqrt(dx * dx + dy * dy);
-        if (d < maxD) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = 'rgba(0,154,166,' + ((1 - d / maxD) * 0.12) + ')';
-          ctx.lineWidth = 0.5;
-          ctx.stroke();
-        }
-      }
+  // ── Desenho: texto ───────────────────────────────────────────
+  function drawText(p) {
+    const { x, y, opacity, color, text, fontSize, type } = p;
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.fillStyle   = color;
+    ctx.font        = type === 'code'
+      ? `${fontSize}px "Courier Prime", "Courier New", monospace`
+      : `${fontSize}px Inter, sans-serif`;
+    ctx.fillText(text, x, y);
+    ctx.restore();
+  }
+
+  // ── Loop principal ───────────────────────────────────────────
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    for (const p of particles) {
+      p.wobble += p.wobbleSpeed;
+      p.x      += p.vx + Math.sin(p.wobble) * p.wobbleAmp;
+      p.y      += p.vy;
+
+      if (p.y < -40)                  Object.assign(p, createParticle(false));
+      if (p.x < -30)                  p.x = canvas.width  + 10;
+      if (p.x > canvas.width  + 30)   p.x = -10;
+
+      if      (p.type === 'benzene') drawBenzene(p);
+      else if (p.type === 'atom')    drawAtom(p);
+      else                           drawText(p);
     }
+
+    rafId = requestAnimationFrame(animate);
   }
 
-  function init() {
-    resize();
-    var density = Math.min(Math.floor(W * H / 14000), 70);
-    particles    = [];
-    molecules    = [];
-    codeParticles = [];
-    for (var i = 0; i < density; i++)              particles.push(makeParticle());
-    for (var i = 0; i < Math.round(density*0.3); i++) molecules.push(makeMolecule());
-    for (var i = 0; i < Math.round(density*0.55); i++) codeParticles.push(makeCode());
-  }
+  // ── Toggle ───────────────────────────────────────────────────
+  btn.addEventListener('click', () => {
+    running = !running;
 
-  function loop() {
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < particles.length;     i++) { particles[i].update();     particles[i].draw(); }
-    drawConnections();
-    for (var i = 0; i < molecules.length;     i++) { molecules[i].update();     molecules[i].draw(); }
-    for (var i = 0; i < codeParticles.length; i++) { codeParticles[i].update(); codeParticles[i].draw(); }
-    requestAnimationFrame(loop);
-  }
+    if (running) {
+      // Retoma
+      rafId = requestAnimationFrame(animate);
+      icon.className = 'fa-solid fa-pause';
+      btn.setAttribute('aria-label', 'Pausar animação de fundo');
+      btn.setAttribute('title', 'Pausar animação');
+    } else {
+      // Pausa
+      cancelAnimationFrame(rafId);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      icon.className = 'fa-solid fa-play';
+      btn.setAttribute('aria-label', 'Retomar animação de fundo');
+      btn.setAttribute('title', 'Retomar animação');
+    }
+  });
 
-  window.addEventListener('resize', function() { init(); });
-
-  init();
-  loop();
+  // ── Inicia ───────────────────────────────────────────────────
+  rafId = requestAnimationFrame(animate);
 })();

@@ -17,7 +17,7 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23009aa6'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' font-family='sans-serif' fill='white'>A</text></svg>">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Animated background canvas -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
     <main>
         <header>
             <img id="avatar" src="foto2.png" alt="Foto de Arthur Gaspar">
@@ -74,6 +78,11 @@
             </a>
         </nav>
     </main>
+
+    <!-- Botão para ligar/desligar animação -->
+    <button id="anim-toggle" aria-label="Pausar animação de fundo" title="Pausar animação">
+        <i class="fa-solid fa-pause" aria-hidden="true"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
