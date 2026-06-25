@@ -6,84 +6,648 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arthur Gaspar</title>
 
-    <!-- SEO & Open Graph -->
-    <meta name="description" content="Perfil de Arthur Gaspar — estudante do IFMA, entusiasta de programação.">
+    <meta name="description" content="Perfil de Arthur Gaspar — estudante do IFMA, pesquisador PIBIC, secretário-geral do Grêmio Paulo Freire.">
     <meta property="og:title" content="Arthur Gaspar">
-    <meta property="og:description" content="Estudante do IFMA, entusiasta de programação em Python, Java e JavaScript.">
-    <meta property="og:image" content="foto2.png">
+    <meta property="og:description" content="Estudante de Técnico em Química no IFMA · Pesquisador PIBIC · Secretário-Geral do Grêmio Paulo Freire.">
+    <meta property="og:image" content="assets/img/foto2.png">
     <meta property="og:type" content="website">
 
-    <!-- Favicon -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23009aa6'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' font-family='sans-serif' fill='white'>A</text></svg>">
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/86ad24bcb9.js" crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
-    <!-- Animated background canvas -->
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
-    <main>
-        <header>
-            <img id="avatar" src="foto2.png" alt="Foto de Arthur Gaspar">
-            <h1 id="name">Arthur Gaspar</h1>
-            <p class="subtitle">Arthur Santana Gaspar Lima</p>
-        </header>
+    <!-- Barra de navegação superior -->
+    <nav id="top-nav">
+        <span class="nav-brand">Arthur Gaspar</span>
+        <div class="nav-actions">
+            <button id="btn-skills" aria-label="Ver habilidades">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                <span id="btn-skills-label">Habilidades</span>
+            </button>
+            <button id="btn-switch" aria-label="Ver mais informações">
+                <span id="btn-switch-label">Mais informações</span>
+                <i id="btn-switch-icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </nav>
 
-        <p class="intro">
-            Estudante de Técnico Integrado em Química no IFMA, com interesse em programação. 
-            Desenvolvo projetos em Python, Java e JavaScript.
-        </p>
+    <!-- ── TELA 1: Bio ── -->
+    <div id="screen-bio" class="screen active">
+        <div class="screen-inner">
 
-        <nav id="links" aria-label="Redes sociais e perfis">
-            <a class="link" href="https://github.com/gaspararthur" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Arthur Gaspar">
-                <div class="link-icon" style="background-color: #333;">
-                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <header>
+                <img id="avatar" src="assets/img/foto2.png" alt="Foto de Arthur Gaspar" role="button" tabindex="0" title="Clique para ver estatísticas" aria-label="Ver estatísticas pessoais">
+                <h1 id="name">Arthur Gaspar</h1>
+                <p class="subtitle">Arthur Santana Gaspar Lima</p>
+                <div class="tags">
+                    <span class="tag">IFMA · Imperatriz</span>
+                    <span class="tag">Téc. em Química</span>
+                    <span class="tag">PIBIC</span>
+                    <span class="tag-flu">⚽ Fluminense</span>
                 </div>
-                <span class="link-name">GitHub</span>
-            </a>
+            </header>
 
-            <a class="link" href="https://www.linkedin.com/in/arthur-santana-gaspar-lima-293b7a251/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Arthur Gaspar">
-                <div class="link-icon" style="background-color: #0077B5;">
-                    <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            <div class="bio-narrative">
+            <p class="intro">
+                Estudante de Técnico Integrado em Química no IFMA — Campus Imperatriz desde 2024,
+                com interesse em pesquisa científica e programação. Atuo como Secretário-Geral
+                do Grêmio Estudantil Paulo Freire e desenvolvo projetos em Python, Java e JavaScript.
+            </p>
+
+            <!-- Spotify Now Playing -->
+            <div id="spotify-widget" class="spotify-widget" hidden aria-live="polite">
+                <div class="spotify-art-wrap">
+                    <img id="spotify-art" src="" alt="Capa do álbum" aria-hidden="true">
+                    <div class="spotify-bars" id="spotify-bars" aria-hidden="true">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
                 </div>
-                <span class="link-name">LinkedIn</span>
-            </a>
-
-            <a class="link" href="https://x.com/ogaspar__" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Arthur Gaspar">
-                <div class="link-icon" style="background-color: #1a1a1a;">
-                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                <div class="spotify-info">
+                    <span class="spotify-status" id="spotify-status">Tocando agora</span>
+                    <strong class="spotify-track" id="spotify-track">—</strong>
+                    <span class="spotify-artist" id="spotify-artist">—</span>
                 </div>
-                <span class="link-name">X (Twitter)</span>
-            </a>
+                <i class="fa-brands fa-spotify spotify-logo" aria-hidden="true"></i>
+            </div>
+            </div><!-- /.bio-narrative -->
 
-            <a class="link" href="https://www.instagram.com/gaspar.arthur_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Gaspar">
-                <div class="link-icon" style="background-color: #E4405F;">
-                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            <!-- Atualmente -->
+            <section id="section-now" class="section-block">
+                <h2 class="section-title">Atualmente</h2>
+                <div class="now-list">
+                    <div class="now-item">
+                        <span class="now-dot" aria-hidden="true"></span>
+                        <div class="now-text">
+                            <strong>Cursando 3º ano Integrado · Técnico em Química</strong>
+                            <span>IFMA · Campus Imperatriz · 2025–2026</span>
+                        </div>
+                    </div>
+                    <div class="now-item">
+                        <span class="now-dot" aria-hidden="true"></span>
+                        <div class="now-text">
+                            <strong>Aluno pesquisador · PIBIC</strong>
+                            <span>Plantas Tóxicas &amp; Óleos Essenciais · orient. Prof. Msc. Alielson Botelho Correa</span>
+                        </div>
+                    </div>
+                    <div class="now-item">
+                        <span class="now-dot" aria-hidden="true"></span>
+                        <div class="now-text">
+                            <strong>Secretário-Geral · Grêmio Estudantil Paulo Freire</strong>
+                            <span>IFMA Imperatriz · desde jan/2026</span>
+                        </div>
+                    </div>
                 </div>
-                <span class="link-name">Instagram</span>
-            </a>
+            </section>
 
-            <a class="link" href="http://lattes.cnpq.br/1517261797918288" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Gaspar">
-                <div class="link-icon" style="background-color: #009aa6;">
-                    <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+            <!-- Destaques -->
+            <section id="section-highlights" class="section-block">
+                <h2 class="section-title">Destaques</h2>
+                <div class="cards-grid">
+
+                    <div class="card card-clickable" role="button" tabindex="0" data-modal="gremio" aria-label="Ver timeline do Grêmio Estudantil">
+                        <span class="card-icon">🏛️</span>
+                        <div class="card-text">
+                            <strong>Secretário-Geral</strong>
+                            <span>Grêmio Estudantil Paulo Freire · IFMA Imperatriz</span>
+                            <span class="card-meta">desde jan/2026</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="card card-clickable" role="button" tabindex="0" data-modal="pesquisa" aria-label="Ver projetos de pesquisa">
+                        <span class="card-icon">🔬</span>
+                        <div class="card-text">
+                            <strong>Aluno pesquisador · PIBIC</strong>
+                            <span>Plantas Tóxicas &amp; Óleos Essenciais</span>
+                            <span class="card-meta">desde 2024</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="card card-clickable" role="button" tabindex="0" data-modal="primeiro" aria-label="Ver galeria do 1º lugar">
+                        <span class="card-icon">🥇</span>
+                        <div class="card-text">
+                            <strong>1º Lugar</strong>
+                            <span>Seminário de IC · IFMA 2025</span>
+                            <span class="card-meta">área "Outros"</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="card card-clickable" role="button" tabindex="0" data-modal="terceiro" aria-label="Ver certificados do 3º lugar">
+                        <span class="card-icon">🥉</span>
+                        <div class="card-text">
+                            <strong>3º Lugar</strong>
+                            <span>Olimpíada Brasileira de Geopolítica</span>
+                            <span class="card-meta">2026</span>
+                        </div>
+                        <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                    </div>
+
                 </div>
-                <span class="link-name">Currículo Lattes</span>
-            </a>
-        </nav>
-    </main>
+            </section>
 
-    <!-- Botão para ligar/desligar animação -->
+            <!-- Fluminense -->
+            <section id="section-flu" class="section-block">
+                <h2 class="section-title">Fluminense FC</h2>
+                <div class="flu-card">
+                    <div class="flu-stripes" aria-hidden="true">
+                        <div class="flu-stripe flu-maroon"></div>
+                        <div class="flu-stripe flu-white"></div>
+                        <div class="flu-stripe flu-green"></div>
+                    </div>
+                    <div class="flu-body">
+                        <div class="flu-header">
+                            <span class="flu-badge" aria-hidden="true">⚽</span>
+                            <div>
+                                <strong class="flu-name">Tricolor das Laranjeiras</strong>
+                                <span class="flu-sub">Rio de Janeiro · fundado em 1902</span>
+                            </div>
+                        </div>
+                        <div class="flu-honors">
+                            <div class="flu-honor">
+                                <span class="flu-honor-num">4×</span>
+                                <span class="flu-honor-label">Brasileirão</span>
+                            </div>
+                            <div class="flu-honor">
+                                <span class="flu-honor-num">1×</span>
+                                <span class="flu-honor-label">Libertadores</span>
+                            </div>
+                            <div class="flu-honor">
+                                <span class="flu-honor-num">1×</span>
+                                <span class="flu-honor-label">Recopa</span>
+                            </div>
+                            <div class="flu-honor">
+                                <span class="flu-honor-num">1×</span>
+                                <span class="flu-honor-label">Mundial (1952)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Linguagens -->
+            <section id="section-langs" class="section-block">
+                <h2 class="section-title">Linguagens</h2>
+                <div class="langs-columns">
+                    <div class="langs-col">
+                        <p class="lang-group-label">Programação</p>
+                        <div class="langs">
+                            <span class="lang-chip">Python</span>
+                            <span class="lang-chip">Java</span>
+                            <span class="lang-chip">JavaScript</span>
+                        </div>
+                    </div>
+                    <div class="langs-col">
+                        <p class="lang-group-label">Comunicação</p>
+                        <div class="langs-spoken">
+                            <div class="lang-spoken-item">
+                                <span class="lang-flag" aria-hidden="true">🇧🇷</span>
+                                <div class="lang-spoken-text">
+                                    <strong>Português</strong>
+                                    <span>Brasil · Falante nativo</span>
+                                </div>
+                                <span class="lang-level level-native">Nativo</span>
+                            </div>
+                            <div class="lang-spoken-item">
+                                <span class="lang-flag" aria-hidden="true">🇺🇸</span>
+                                <div class="lang-spoken-text">
+                                    <strong>Inglês</strong>
+                                    <span>Avançado 1 · Curso de Inglês Acessível</span>
+                                </div>
+                                <span class="lang-level level-advanced">Avançado</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Participações (colapsável) -->
+            <section id="section-parts" class="section-block">
+                <button id="part-toggle" class="part-btn" aria-expanded="false" aria-controls="part-list">
+                    <span>Participações <span class="part-count">(9)</span></span>
+                    <i class="fa-solid fa-chevron-down chevron" aria-hidden="true"></i>
+                </button>
+
+                <div id="part-list" class="part-list" aria-hidden="true">
+
+                    <div class="year-group">
+                        <span class="year-label">2026</span>
+                        <ul>
+                            <li>
+                                <span class="ptype congresso">Congresso</span>
+                                Congresso da União Brasileira de Estudantes Secundaristas
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="year-group">
+                        <span class="year-label">2025</span>
+                        <ul>
+                            <li>
+                                <span class="ptype congresso">Congresso</span>
+                                Universo IF — Levantamento Botânico de Plantas Tóxicas no IFMA
+                            </li>
+                            <li>
+                                <span class="ptype seminario">Seminário</span>
+                                <span class="prize-badge">🥇 1º Lugar</span>
+                                Seminário de IC — Levantamento Botânico de Plantas Tóxicas no IFMA
+                            </li>
+                            <li>
+                                <span class="ptype seminario">Seminário</span>
+                                Semana Interdisciplinar de Meio Ambiente e Química
+                            </li>
+                            <li>
+                                <span class="ptype seminario">Seminário</span>
+                                Construção do PPP do IFMA — Campus Imperatriz
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="year-group">
+                        <span class="year-label">2024</span>
+                        <ul>
+                            <li>
+                                <span class="ptype oficina">Oficina</span>
+                                Seminário de IC: Técnicas de Resolução de Problemas Matemáticos
+                            </li>
+                            <li>
+                                <span class="ptype oficina">Oficina</span>
+                                Seminário de IC: Desenvolvendo seu próprio assistente pessoal com Gemini
+                            </li>
+                            <li>
+                                <span class="ptype seminario">Seminário</span>
+                                Seminário de Iniciação Científica
+                            </li>
+                            <li>
+                                <span class="ptype seminario">Seminário</span>
+                                Semana Interdisciplinar de Meio Ambiente e Química 2024
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Contador de visitantes -->
+            <div class="visitor-bar">
+                <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                <span id="visitor-count">—</span>
+                <span>visitas</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── TELA 2: Habilidades ── -->
+    <div id="screen-skills" class="screen">
+        <div class="screen-inner">
+
+            <header class="links-header">
+                <img class="avatar-sm" src="assets/img/foto2.png" alt="Arthur Gaspar">
+                <h2>Habilidades</h2>
+                <p class="subtitle">O que sei fazer</p>
+            </header>
+
+            <div class="skills-grid">
+
+                <div class="skill-card">
+                    <div class="skill-icon">✍️</div>
+                    <div class="skill-body">
+                        <strong>Escrita</strong>
+                        <span>Redação de artigos científicos, atas, relatórios e textos argumentativos.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🎤</div>
+                    <div class="skill-body">
+                        <strong>Oratória &amp; Palestras</strong>
+                        <span>Apresentações em seminários, assembleias e eventos acadêmicos.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🏐</div>
+                    <div class="skill-body">
+                        <strong>Voleibol</strong>
+                        <span>Praticante regular — líbero e levantador.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔬</div>
+                    <div class="skill-body">
+                        <strong>Pesquisa Científica</strong>
+                        <span>Metodologia científica, levantamento bibliográfico e escrita acadêmica.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-body">
+                        <strong>Programação</strong>
+                        <span>Python e JavaScript — automações, scripts e projetos web.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <div class="skill-body">
+                        <strong>Liderança Estudantil</strong>
+                        <span>Coordenação de reuniões, documentos oficiais e articulação política no grêmio.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌍</div>
+                    <div class="skill-body">
+                        <strong>Geopolítica</strong>
+                        <span>Relações internacionais, história global e análise geopolítica.</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌿</div>
+                    <div class="skill-body">
+                        <strong>Botânica Aplicada</strong>
+                        <span>Identificação de espécies, fitoquímica básica e catalogação de plantas.</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── TELA 3: Links ── -->
+    <div id="screen-links" class="screen">
+        <div class="screen-inner">
+
+            <header class="links-header">
+                <img class="avatar-sm" src="assets/img/foto2.png" alt="Arthur Gaspar">
+                <h2>Redes &amp; Perfis</h2>
+                <p class="subtitle">Onde me encontrar</p>
+            </header>
+
+            <nav id="links" aria-label="Redes sociais e perfis">
+
+                <a class="link" href="https://github.com/gaspararthur" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Arthur Gaspar">
+                    <div class="link-icon" style="background-color:#333;">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    </div>
+                    <span class="link-name">GitHub</span>
+                </a>
+
+                <a class="link" href="https://www.linkedin.com/in/arthur-santana-gaspar-lima-293b7a251/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Arthur Gaspar">
+                    <div class="link-icon" style="background-color:#0077B5;">
+                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                    </div>
+                    <span class="link-name">LinkedIn</span>
+                </a>
+
+                <a class="link" href="https://x.com/ogaspar__" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Arthur Gaspar">
+                    <div class="link-icon" style="background-color:#1a1a1a;">
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </div>
+                    <span class="link-name">X (Twitter)</span>
+                </a>
+
+                <a class="link" href="https://www.instagram.com/gaspar.arthur_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Gaspar">
+                    <div class="link-icon" style="background-color:#E4405F;">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </div>
+                    <span class="link-name">Instagram</span>
+                </a>
+
+                <a class="link" href="http://lattes.cnpq.br/1517261797918288" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Gaspar">
+                    <div class="link-icon" style="background-color:#009aa6;">
+                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                    </div>
+                    <span class="link-name">Currículo Lattes</span>
+                </a>
+
+            </nav>
+        </div>
+    </div>
+
+    <!-- ── MODAL OVERLAY ── -->
+    <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-sheet">
+            <div class="modal-handle" aria-hidden="true"></div>
+            <button class="modal-close" id="modal-close-btn" aria-label="Fechar">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+            </button>
+            <div class="modal-body">
+
+                <!-- PESQUISA -->
+                <div id="modal-pesquisa" class="modal-content" hidden>
+                    <h2 class="modal-title">🔬 Projetos de Pesquisa</h2>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-active">Finalizado</span>
+                            <span class="project-period">2024 – 2025</span>
+                        </div>
+                        <h3 class="project-name">Levantamento Botânico de Plantas Tóxicas no IFMA</h3>
+                        <p class="project-desc">Identificação e catalogação de espécies vegetais com potencial tóxico no campus do IFMA — Imperatriz, com análise de óleos essenciais e compostos bioativos.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">🌿 Botânica</span>
+                            <span class="project-tag">⚗️ Fitoquímica</span>
+                            <span class="project-tag">🐍 Plantas tóxicas</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-advisor">Orientador: Prof.ª Dr.ª Patrícia Suelene Silva Costa Gobira</span>
+                            <span class="project-type">PIBIC · CNPq</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <span class="project-status status-active">Em andamento</span>
+                            <span class="project-period">2026 – presente</span>
+                        </div>
+                        <h3 class="project-name">Avaliação da Atividade Antimicrobiana de Óleos Essenciais de Plantas Ditas "Venenosas" no Campus Imperatriz</h3>
+                        <p class="project-desc">A crescente resistência microbiana aos fármacos convencionais impulsiona a busca por alternativas terapêuticas naturais. Este projeto avalia a atividade antimicrobiana de óleos essenciais extraídos de espécies vegetais do IFMA — Imperatriz, correlacionando sua composição fitoquímica com efeitos ecotoxicológicos em organismos bioindicadores. A extração é feita por hidrodestilação, a caracterização por testes qualitativos e cromatografia, e a atividade antimicrobiana é avaliada frente a <em>Escherichia coli</em> pelo método de difusão em disco. Testes ecotoxicológicos com sementes de feijão analisam germinação e desenvolvimento radicular.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">🦠 Antimicrobiano</span>
+                            <span class="project-tag">🌿 Óleos Essenciais</span>
+                            <span class="project-tag">⚗️ Fitoquímica</span>
+                            <span class="project-tag">🌱 Ecotoxicologia</span>
+                        </div>
+                        <div class="project-footer">
+                            <span class="project-advisor">Orientador: Prof. Msc. Alielson Correa Botelho</span>
+                            <span class="project-type">PIBIC · CNPq</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRÊMIO -->
+                <div id="modal-gremio" class="modal-content" hidden>
+                    <h2 class="modal-title">🏛️ Grêmio Paulo Freire</h2>
+                    <p class="modal-subtitle">Grêmio Estudantil · IFMA Campus Imperatriz</p>
+
+                    <div class="timeline">
+
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">jan/2026</span>
+                                <strong class="tl-title">Eleito Secretário-Geral</strong>
+                                <p class="tl-desc">Assumiu o cargo de Secretário-Geral após processo eleitoral democrático dentro do grêmio.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">abr/2026 · São Bernardo do Campo – SP</span>
+                                <strong class="tl-title">46º Congresso da UBES — CONUBES</strong>
+                                <p class="tl-desc">Participação no 46º Congresso da União Brasileira de Estudantes Secundaristas, representando o Grêmio Paulo Freire. Tema: <em>Democracia e soberania: um Brasil de tamanho da nossa rebeldia.</em></p>
+                                <div class="tl-gallery">
+                                    <a class="tl-photo" href="assets/img/conubes-1.jpg" target="_blank" rel="noopener" aria-label="Grupo na entrada do CONUBES com bandeira do GEPF">
+                                        <img src="assets/img/conubes-1.jpg" alt="Grupo na entrada do CONUBES com bandeira do Grêmio Paulo Freire" loading="lazy">
+                                    </a>
+                                    <a class="tl-photo" href="assets/img/conubes-2.jpg" target="_blank" rel="noopener" aria-label="Marcha com bandeiras no CONUBES">
+                                        <img src="assets/img/conubes-2.jpg" alt="Marcha com bandeiras do Brasil e da UBES" loading="lazy">
+                                    </a>
+                                    <a class="tl-photo" href="assets/img/conubes-3.jpg" target="_blank" rel="noopener" aria-label="Grupo em frente ao ônibus rumo ao CONUBES">
+                                        <img src="assets/img/conubes-3.jpg" alt="Grupo em frente ao ônibus a caminho do CONUBES" loading="lazy">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">contínuo</span>
+                                <strong class="tl-title">Gestão &amp; Secretaria</strong>
+                                <p class="tl-desc">Redação de atas, organização de reuniões, comunicação oficial e articulação com a direção do campus.</p>
+                            </div>
+                        </div>
+
+                        <div class="tl-item tl-future">
+                            <div class="tl-dot"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">2026</span>
+                                <strong class="tl-title">Próximas ações</strong>
+                                <p class="tl-desc">Novas iniciativas estudantis, eventos e projetos em desenvolvimento pelo grêmio.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- 1º LUGAR -->
+                <div id="modal-primeiro" class="modal-content" hidden>
+                    <h2 class="modal-title">🥇 Seminário de IC · IFMA 2025</h2>
+                    <p class="modal-subtitle">1º Lugar · Área "Outros" · Levantamento Botânico de Plantas Tóxicas</p>
+
+                    <div class="gallery-grid">
+                        <div class="gallery-slot">
+                            <i class="fa-solid fa-image" aria-hidden="true"></i>
+                            <span>Apresentação</span>
+                        </div>
+                        <div class="gallery-slot">
+                            <i class="fa-solid fa-image" aria-hidden="true"></i>
+                            <span>Com a banca</span>
+                        </div>
+                        <div class="gallery-slot">
+                            <i class="fa-solid fa-image" aria-hidden="true"></i>
+                            <span>Banner do projeto</span>
+                        </div>
+                        <div class="gallery-slot">
+                            <i class="fa-solid fa-image" aria-hidden="true"></i>
+                            <span>Premiação</span>
+                        </div>
+                    </div>
+
+                    <p class="gallery-note">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Fotos do evento serão adicionadas em breve.
+                    </p>
+                </div>
+
+                <!-- 3º LUGAR -->
+                <div id="modal-terceiro" class="modal-content" hidden>
+                    <h2 class="modal-title">🥉 Olimpíada Brasileira de Geopolítica</h2>
+                    <p class="modal-subtitle">3º Lugar · 2026</p>
+
+                    <div class="cert-grid">
+                        <div class="cert-card">
+                            <div class="cert-header">
+                                <span class="cert-medal">🥉</span>
+                                <div class="cert-header-text">
+                                    <strong>3º Lugar</strong>
+                                    <span>Olimpíada Brasileira de Geopolítica</span>
+                                </div>
+                            </div>
+                            <div class="cert-body">
+                                <p class="cert-name">Arthur Santana Gaspar Lima</p>
+                                <p class="cert-year">2026</p>
+                            </div>
+                            <div class="gallery-slot cert-slot">
+                                <i class="fa-solid fa-award" aria-hidden="true"></i>
+                                <span>Certificado em breve</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ESTATÍSTICAS (easter egg — clique na foto de perfil) -->
+                <div id="modal-stats" class="modal-content" hidden>
+                    <h2 class="modal-title">📊 Estatísticas</h2>
+                    <p class="modal-subtitle">Alguns números sobre mim</p>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="999">0</span>
+                            <span class="stat-icon">☕</span>
+                            <span class="stat-label">xícaras de café</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="2">0</span>
+                            <span class="stat-icon">🔬</span>
+                            <span class="stat-label">projetos de pesquisa</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="9">0</span>
+                            <span class="stat-icon">📋</span>
+                            <span class="stat-label">participações em eventos</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-icon">💻</span>
+                            <span class="stat-label">linguagens de programação</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="3">0</span>
+                            <span class="stat-icon">🦴</span>
+                            <span class="stat-label">ossos quebrados</span>
+                        </div>
+                    </div>
+                    <p class="stats-hint">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Você encontrou clicando na foto — bom olho.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão de toggle da animação -->
     <button id="anim-toggle" aria-label="Pausar animação de fundo" title="Pausar animação">
         <i class="fa-solid fa-pause" aria-hidden="true"></i>
     </button>
 
-    <script src="script.js"></script>
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
