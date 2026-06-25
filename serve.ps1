@@ -32,6 +32,8 @@ while ($listener.IsListening) {
         $bytes = [IO.File]::ReadAllBytes($file)
         $ctx.Response.ContentType     = $mime
         $ctx.Response.ContentLength64 = $bytes.Length
+        $ctx.Response.Headers.Add('Cache-Control', 'no-store, no-cache, must-revalidate')
+        $ctx.Response.Headers.Add('Pragma', 'no-cache')
         $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
     } else {
         $msg   = [Text.Encoding]::UTF8.GetBytes('404 Not Found')

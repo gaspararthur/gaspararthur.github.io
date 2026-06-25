@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- EDITE: título da página (aparece na aba do browser e no Google) -->
+    <title>Título do Post · Arthur Gaspar</title>
+    <meta name="description" content="Descrição breve do post (aparece no Google e nas redes sociais).">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23009aa6'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' font-family='sans-serif' fill='white'>A</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+
+    <nav class="b-nav">
+        <a class="b-nav-brand" href="../../index.html">Arthur Gaspar</a>
+        <div class="b-nav-links">
+            <a href="../index.html">Blog</a>
+        </div>
+    </nav>
+
+    <div class="p-wrap">
+
+        <main>
+            <a class="p-back" href="../index.html">← Posts</a>
+
+            <!-- EDITE: título visível do post -->
+            <h1 class="p-title">Título do Post</h1>
+            <!-- EDITE: subtítulo / descrição de uma linha -->
+            <p class="p-subtitle">Breve descrição do que este post aborda.</p>
+            <!-- EDITE: data no formato MÊS DD, AAAA em maiúsculas -->
+            <span class="p-date">MÊS DD, AAAA</span>
+            <hr class="p-divider">
+
+            <!--
+            ══════════════════════════════════════════════════
+              CONTEÚDO DO POST
+              Escreva dentro de <article class="p-body">.
+
+              Elementos disponíveis:
+                <h2 id="slug-da-secao">Título da seção</h2>
+                <h3 id="slug-da-subsecao">Sub-seção</h3>
+                <p>Parágrafo normal.</p>
+                <strong>negrito</strong>  <em>itálico</em>
+                <code>código inline</code>
+                <pre><code>bloco de código</code></pre>
+                <blockquote>citação</blockquote>
+                <ul><li>item</li></ul>
+                <ol><li>item</li></ol>
+                <a href="...">link</a>
+                <hr> (divisor horizontal)
+
+              O TOC é gerado automaticamente pelos h2/h3.
+              Dê sempre um id único (slug) a cada h2/h3.
+            ══════════════════════════════════════════════════
+            -->
+            <article class="p-body" id="post-body">
+
+                <h2 id="introducao">Introdução</h2>
+                <p>Escreva aqui o primeiro parágrafo...</p>
+
+                <h2 id="desenvolvimento">Desenvolvimento</h2>
+                <p>Continue aqui...</p>
+
+                <h2 id="conclusao">Conclusão</h2>
+                <p>Feche o raciocínio aqui.</p>
+
+            </article>
+        </main>
+
+        <aside class="p-toc">
+            <p class="p-toc-label">On this post</p>
+            <nav class="p-toc-nav" id="toc-nav"></nav>
+        </aside>
+
+    </div>
+
+    <!-- NÃO EDITE o script abaixo — ele gera o TOC automaticamente -->
+    <script>
+        const headings = document.querySelectorAll('#post-body h2, #post-body h3');
+        const tocNav   = document.getElementById('toc-nav');
+
+        headings.forEach(h => {
+            const a = document.createElement('a');
+            a.href        = '#' + h.id;
+            a.textContent = h.textContent;
+            if (h.tagName === 'H3') a.classList.add('h3');
+            tocNav.appendChild(a);
+        });
+
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                const link = tocNav.querySelector(`a[href="#${e.target.id}"]`);
+                if (link) link.classList.toggle('active', e.isIntersecting);
+            });
+        }, { rootMargin: '-10% 0px -80% 0px' });
+
+        headings.forEach(h => io.observe(h));
+    </script>
+
+</body>
+</html>

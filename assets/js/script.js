@@ -467,7 +467,7 @@ const COUNTER_KEY       = 'visitas';
       '  Liderança           <span class="t-green">█████████░</span> 88%',
       '  Pesquisa            <span class="t-green">████████░░</span> 84%',
       '  Geopolítica         <span class="t-green">████████░░</span> 80%',
-      '  Python/JS           <span class="t-yellow">██████░░░░</span> 65%',
+      '  Python/JS           <span class="t-yellow">██░░░░░░░░</span> 30%',
     ],
     contact: () => [
       '<span class="t-cyan">Contato:</span>',
@@ -479,7 +479,7 @@ const COUNTER_KEY       = 'visitas';
     ],
     github:  () => { window.open('https://github.com/gaspararthur','_blank'); return ['<span class="t-green">Abrindo GitHub...</span>']; },
     lattes:  () => { window.open('http://lattes.cnpq.br/1517261797918288','_blank'); return ['<span class="t-green">Abrindo Currículo Lattes...</span>']; },
-    clear:   () => { terminalOutput.innerHTML = ''; return null; },
+    clear:   () => { terminalOutput.innerHTML = ''; return ['<span class="t-red">Terminal limpo. Digite "help" para ver os comandos disponíveis.</span>'];},
     exit:    () => { closeTerminal(); return null; },
     // Easter eggs
     'c6h6':           () => ['<span class="t-cyan">C₆H₆ — Benzeno</span>','    \\   /','  — C = C —',' /         \\','C           C',' \\         /','  — C = C —','    /   \\','<span class="t-dim">Estrutura aromática · Kekulé (1865)</span>'],

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como é fazer iniciação científica no ensino médio? · Arthur Gaspar</title>
+    <meta name="description" content="Como foi fazer ciência no ensino médio?">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23009aa6'/><text y='.9em' font-size='70' x='50%' text-anchor='middle' font-family='sans-serif' fill='white'>A</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Courier+Prime&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../blog.css">
+</head>
+<body>
+
+    <nav class="b-nav">
+        <a class="b-nav-brand" href="../../index.html">Arthur Gaspar</a>
+        <div class="b-nav-links">
+            <a href="../index.html">Blog</a>
+        </div>
+    </nav>
+
+    <div class="p-wrap">
+
+        <main>
+            <a class="p-back" href="../index.html">← Posts</a>
+
+            <h1 class="p-title">Como é fazer iniciação científica no ensino médio?</h1>
+            <p class="p-subtitle">Uma reflexão sobre minha experiência como aluno pesquisador.</p>
+            <span class="p-date">JUNHO 25, 2026</span>
+            <hr class="p-divider">
+
+            <article class="p-body" id="post-body">
+
+                <p>
+                    Quando as pessoas ouvem falar em iniciação científica, é comum imaginarem um ambiente reservado apenas
+                    para estudantes universitários ou pesquisadores experientes.  Eu mesmo já pensei assim. Hoje, depois de alguns anos participando 
+                    de projetos de pesquisa no IFMA, posso dizer que essa foi uma das experiências mais transformadoras da minha vida acadêmica.
+                </p>
+                <p>Aprendi diferente.</p>
+
+                <h2 id="o-problema-da-planilha">A iniciação científica</h2>
+                <p>
+                    Fazer iniciação científica no ensino médio vai muito além de entrar em um laboratório.
+                    É aprender a fazer perguntas, buscar respostas com método, trabalhar em equipe, lidar com desafios
+                    e compreender que a ciência é construída aos poucos, com dedicação e curiosidade.
+                </p>
+                <p>
+                    No meu caso, a pesquisa abriu portas que eu sequer imaginava. Tive a oportunidade de participar de eventos científicos,
+                    apresentar trabalhos, conhecer pesquisadores, aprender novas técnicas laboratoriais e esenvolver habilidades que dificilmente
+                    seriam adquiridas apenas em sala de aula. Cada projeto trouxe novos desafios e me mostrou como o conhecimento pode ser 
+                    utilizado para gerar impacto na sociedade.
+                </p>
+
+                <h2 id="python-no-laboratorio">A trajetória</h2>
+                <p>
+                    Um dos momentos mais marcantes dessa trajetória foi participar do IFMA Cast, podcast oficial do Instituto Federal do Maranhão. 
+                    Durante a conversa, pude compartilhar um pouco da minha experiência na iniciação científica, falar sobre a importância da pesquisa ainda no ensino médio, explicar
+                    como estudantes podem ingressar nesse universo e mostrar como a ciência pode transformar a vida de quem decide se dedicar a ela.
+                    Também tive a oportunidade de contar sobre uma viagem a São Luís proporcionada pela pesquisa. Além da experiência acadêmica, foi um momento de muito aprendizado,
+                    convivência com outros estudantes, troca de experiências e diversão. Outro aspecto que considero importante destacar é que programas de iniciação científica, como o PIBIC,
+                    podem oferecer bolsas aos estudantes. Essa ajuda financeira representa um incentivo para que mais jovens possam se dedicar à pesquisa e continuar desenvolvendo seus projetos.
+
+                <h2 id="o-que-vem-depois">O que vem depois</h2>
+                <p>
+                    Ao longo dessa caminhada, percebi que a iniciação científica desenvolve muito mais do que conhecimentos técnicos.
+                    Aprendi a escrever melhor, apresentar trabalhos em público, organizar projetos, pesquisar em bases científicas, resolver problemas e trabalhar com responsabilidade.
+                    São competências que levarei para qualquer área profissional que escolher no futuro.
+                    Hoje, olhando para trás, percebo que aceitar o convite para participar da pesquisa foi uma das melhores decisões que tomei
+                    A iniciação científica ampliou minha visão sobre a educação, abriu novas oportunidades e me fez
+                    enxergar que produzir conhecimento também é uma forma de transformar a realidade.
+                </p>
+
+            </article>
+        </main>
+
+        <aside class="p-toc">
+            <p class="p-toc-label">On this post</p>
+            <nav class="p-toc-nav" id="toc-nav"></nav>
+        </aside>
+
+    </div>
+
+    <script>
+        // Auto-gera TOC a partir dos h2/h3 do artigo
+        const headings = document.querySelectorAll('#post-body h2, #post-body h3');
+        const tocNav   = document.getElementById('toc-nav');
+
+        headings.forEach(h => {
+            const a = document.createElement('a');
+            a.href      = '#' + h.id;
+            a.textContent = h.textContent;
+            if (h.tagName === 'H3') a.classList.add('h3');
+            tocNav.appendChild(a);
+        });
+
+        // Destaca link ativo ao rolar
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                const link = tocNav.querySelector(`a[href="#${e.target.id}"]`);
+                if (link) link.classList.toggle('active', e.isIntersecting);
+            });
+        }, { rootMargin: '-10% 0px -80% 0px' });
+
+        headings.forEach(h => io.observe(h));
+    </script>
+
+</body>
+</html>

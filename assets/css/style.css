@@ -103,6 +103,28 @@ html, body {
 #btn-switch:hover { background: rgba(0,154,166,0.1); border-color: #009aa6; }
 #btn-switch:focus-visible { outline: 2px solid #009aa6; outline-offset: 2px; }
 
+/* ── Link Blog ──────────────────────────────────────────── */
+#btn-blog {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #222;
+    background: transparent;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+#btn-blog:hover { background: rgba(255,255,255,0.04); border-color: #333; color: #aaa; }
+#btn-blog:focus-visible { outline: 2px solid #009aa6; outline-offset: 2px; }
+
 /* ── Botão secundário (Habilidades) ────────────────────── */
 #btn-skills {
     display: flex;
