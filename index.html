@@ -26,12 +26,16 @@
     <nav id="top-nav">
         <span class="nav-brand">Arthur Gaspar</span>
         <div class="nav-actions">
+            <button id="btn-projects" aria-label="Ver projetos de pesquisa">
+                <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                <span id="btn-projects-label">Projetos</span>
+            </button>
             <button id="btn-skills" aria-label="Ver habilidades">
                 <i class="fa-solid fa-bolt" aria-hidden="true"></i>
                 <span id="btn-skills-label">Habilidades</span>
             </button>
-            <button id="btn-switch" aria-label="Ver mais informações">
-                <span id="btn-switch-label">Mais informações</span>
+            <button id="btn-switch" aria-label="Ver histórico">
+                <span id="btn-switch-label">Histórico</span>
                 <i id="btn-switch-icon" class="fa-solid fa-arrow-right" aria-hidden="true"></i>
             </button>
         </div>
@@ -51,7 +55,8 @@
                 </div>
 
                 <div class="tags">
-                    <span class="tag">IFMA · Imperatriz</span>
+                    <span class="tag">IFMA · Imperatriz, MA</span>
+                    <span class="tag">Apaixonado por café</span>
                     <span class="tag-flu">⚽ Fluminense</span>
                 </div>
 
@@ -70,7 +75,7 @@
                         </div>
                     </div>
                     <div class="spotify-info">
-                        <span class="spotify-status" id="spotify-status">Tocando agora</span>
+                        <span class="spotify-status" id="spotify-status">Gaspar está ouvindo agora</span>
                         <strong class="spotify-track" id="spotify-track">—</strong>
                         <span class="spotify-artist" id="spotify-artist">—</span>
                     </div>
@@ -104,7 +109,7 @@
                 <!-- Coluna esquerda: intro + Atualmente + Fluminense -->
                 <div class="bio-left-col">
 
-                    <h2 class="bio-greeting">Olá! Sou o Arthur. <span aria-hidden="true">👋</span></h2>
+                    <h2 class="bio-greeting">Olá! Sou o Gaspar. <span aria-hidden="true">👋</span></h2>
 
                     <p class="intro">
                         Estudante de Técnico Integrado em Química no IFMA — Campus Imperatriz desde 2024,
@@ -172,7 +177,7 @@
                                     </div>
                                     <div class="flu-honor">
                                         <span class="flu-honor-num">1×</span>
-                                        <span class="flu-honor-label">Mundial (1952)</span>
+                                        <span class="flu-honor-label">Intercontinental</span>
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +244,78 @@
         </div>
     </div>
 
-    <!-- ── TELA 2: Habilidades ── -->
+    <!-- ── TELA 2: Projetos ── -->
+    <div id="screen-projects" class="screen">
+        <div class="screen-inner">
+
+            <header class="links-header">
+                <img class="avatar-sm" src="assets/img/foto2.png" alt="Arthur Gaspar">
+                <h2>Projetos &amp; Pesquisa</h2>
+                <p class="subtitle">Produções acadêmicas e científicas</p>
+            </header>
+
+            <div class="proj-stats-row">
+                <div class="proj-stat-item">
+                    <span class="proj-stat-num" data-target="2">0</span>
+                    <span class="proj-stat-label">Projetos PIBIC</span>
+                </div>
+                <div class="proj-stat-item">
+                    <span class="proj-stat-num" data-target="9">0</span>
+                    <span class="proj-stat-label">Eventos</span>
+                </div>
+                <div class="proj-stat-item">
+                    <span class="proj-stat-num" data-target="3">0</span>
+                    <span class="proj-stat-label">Premiações</span>
+                </div>
+                <div class="proj-stat-item">
+                    <span class="proj-stat-num" data-target="900">0</span>
+                    <span class="proj-stat-label">h Laboratório</span>
+                </div>
+            </div>
+
+            <div class="proj-card card-clickable" role="button" tabindex="0" data-modal="proj1" aria-label="Abrir projeto: Levantamento Botânico">
+                <div class="proj-card-meta">
+                    <span class="project-status status-done">Finalizado</span>
+                    <span class="project-period">2024 – 2025</span>
+                    <span class="proj-type-badge">PIBIC · CNPq</span>
+                </div>
+                <h3 class="proj-card-title">Levantamento Botânico de Plantas Tóxicas no IFMA</h3>
+                <p class="proj-card-desc">Identificação e catalogação de espécies vegetais com potencial tóxico no campus do IFMA — Imperatriz, com análise de óleos essenciais e compostos bioativos.</p>
+                <div class="project-tags">
+                    <span class="project-tag">🌿 Botânica</span>
+                    <span class="project-tag">⚗️ Fitoquímica</span>
+                    <span class="project-tag">🐍 Plantas tóxicas</span>
+                </div>
+                <div class="proj-card-footer">
+                    <span class="proj-award-badge">🥇 1º Lugar · SEMIC 2025</span>
+                    <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div class="proj-card card-clickable" role="button" tabindex="0" data-modal="proj2" aria-label="Abrir projeto: Atividade Antimicrobiana">
+                <div class="proj-card-meta">
+                    <span class="project-status status-active">Em andamento</span>
+                    <span class="project-period">2026 – presente</span>
+                    <span class="proj-type-badge">PIBIC · CNPq</span>
+                </div>
+                <h3 class="proj-card-title">Avaliação da Atividade Antimicrobiana de Óleos Essenciais de Plantas "Venenosas"</h3>
+                <p class="proj-card-desc">Investigação da atividade antimicrobiana frente a <em>E. coli</em> por difusão em disco, com análise fitoquímica e ecotoxicológica em sementes de feijão.</p>
+                <div class="project-tags">
+                    <span class="project-tag">🦠 Antimicrobiano</span>
+                    <span class="project-tag">🌿 Óleos Essenciais</span>
+                    <span class="project-tag">⚗️ Fitoquímica</span>
+                    <span class="project-tag">🌱 Ecotoxicologia</span>
+                </div>
+                <div class="proj-card-footer">
+                    <span></span>
+                    <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ── TELA 3: Habilidades ── -->
     <div id="screen-skills" class="screen">
         <div class="screen-inner">
 
@@ -254,8 +330,9 @@
                 <div class="skill-card">
                     <div class="skill-icon">✍️</div>
                     <div class="skill-body">
-                        <strong>Escrita</strong>
-                        <span>Redação de artigos científicos, atas, relatórios e textos argumentativos.</span>
+                        <strong>Escrita Científica</strong>
+                        <span>Artigos, atas, relatórios e textos argumentativos.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:90%"></div></div>
                     </div>
                 </div>
 
@@ -263,7 +340,53 @@
                     <div class="skill-icon">🎤</div>
                     <div class="skill-body">
                         <strong>Oratória &amp; Palestras</strong>
-                        <span>Apresentações em seminários, assembleias e eventos acadêmicos.</span>
+                        <span>Apresentações em seminários e eventos acadêmicos.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:85%"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🔬</div>
+                    <div class="skill-body">
+                        <strong>Pesquisa Científica</strong>
+                        <span>Metodologia, levantamento bibliográfico e PIBIC.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:84%"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">👥</div>
+                    <div class="skill-body">
+                        <strong>Liderança Estudantil</strong>
+                        <span>Gestão de reuniões, secretaria e articulação política.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:88%"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌿</div>
+                    <div class="skill-body">
+                        <strong>Botânica Aplicada</strong>
+                        <span>Identificação de espécies e fitoquímica básica.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:76%"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">🌍</div>
+                    <div class="skill-body">
+                        <strong>Geopolítica</strong>
+                        <span>Relações internacionais e análise geopolítica.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:80%"></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <div class="skill-body">
+                        <strong>Programação</strong>
+                        <span>Python, Java, JavaScript — automações e projetos web.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:50%"></div></div>
                     </div>
                 </div>
 
@@ -272,46 +395,7 @@
                     <div class="skill-body">
                         <strong>Voleibol</strong>
                         <span>Praticante regular — líbero e levantador.</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🔬</div>
-                    <div class="skill-body">
-                        <strong>Pesquisa Científica</strong>
-                        <span>Metodologia científica, levantamento bibliográfico e escrita acadêmica.</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">💻</div>
-                    <div class="skill-body">
-                        <strong>Programação</strong>
-                        <span>Python e JavaScript — automações, scripts e projetos web.</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">👥</div>
-                    <div class="skill-body">
-                        <strong>Liderança Estudantil</strong>
-                        <span>Coordenação de reuniões, documentos oficiais e articulação política no grêmio.</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🌍</div>
-                    <div class="skill-body">
-                        <strong>Geopolítica</strong>
-                        <span>Relações internacionais, história global e análise geopolítica.</span>
-                    </div>
-                </div>
-
-                <div class="skill-card">
-                    <div class="skill-icon">🌿</div>
-                    <div class="skill-body">
-                        <strong>Botânica Aplicada</strong>
-                        <span>Identificação de espécies, fitoquímica básica e catalogação de plantas.</span>
+                        <div class="skill-bar"><div class="skill-bar-fill" style="--pct:78%"></div></div>
                     </div>
                 </div>
 
@@ -357,7 +441,7 @@
                                 <strong>Espanhol</strong>
                                 <span>Colégio Militar Tiradentes II</span>
                             </div>
-                            <span class="lang-level level-advanced">Básico</span>
+                            <span class="lang-level level-basic">Básico</span>
                         </div>
                     </div>
                 </div>
@@ -376,114 +460,186 @@
                 <p class="subtitle">Redes sociais e participações acadêmicas</p>
             </header>
 
-            <nav id="links" aria-label="Redes sociais e perfis">
+            <div class="hist-cols">
 
-                <a class="link" href="https://github.com/gaspararthur" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Arthur Gaspar">
-                    <div class="link-icon" style="background-color:#333;">
-                        <i class="fa-brands fa-github" aria-hidden="true"></i>
-                    </div>
-                    <span class="link-name">GitHub</span>
-                </a>
+                <!-- ── Coluna 1: Redes Sociais ──────────────────────── -->
+                <div class="hist-col">
+                    <p class="hist-col-label">Redes Sociais</p>
+                    <nav id="links" aria-label="Redes sociais e perfis">
 
-                <a class="link" href="https://www.linkedin.com/in/arthur-santana-gaspar-lima-293b7a251/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Arthur Gaspar">
-                    <div class="link-icon" style="background-color:#0077B5;">
-                        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
-                    </div>
-                    <span class="link-name">LinkedIn</span>
-                </a>
+                        <a class="link" href="https://github.com/gaspararthur" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Arthur Gaspar">
+                            <div class="link-icon" style="background-color:#333;">
+                                <i class="fa-brands fa-github" aria-hidden="true"></i>
+                            </div>
+                            <span class="link-name">GitHub</span>
+                        </a>
 
-                <a class="link" href="https://x.com/ogaspar__" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Arthur Gaspar">
-                    <div class="link-icon" style="background-color:#1a1a1a;">
-                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-                    </div>
-                    <span class="link-name">X (Twitter)</span>
-                </a>
+                        <a class="link" href="https://www.linkedin.com/in/arthur-santana-gaspar-lima-293b7a251/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Arthur Gaspar">
+                            <div class="link-icon" style="background-color:#0077B5;">
+                                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+                            </div>
+                            <span class="link-name">LinkedIn</span>
+                        </a>
 
-                <a class="link" href="https://www.instagram.com/gaspar.arthur_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Gaspar">
-                    <div class="link-icon" style="background-color:#E4405F;">
-                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
-                    </div>
-                    <span class="link-name">Instagram</span>
-                </a>
+                        <a class="link" href="https://x.com/ogaspar__" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter) de Arthur Gaspar">
+                            <div class="link-icon" style="background-color:#1a1a1a;">
+                                <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                            </div>
+                            <span class="link-name">X (Twitter)</span>
+                        </a>
 
-                <a class="link" href="http://lattes.cnpq.br/1517261797918288" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Gaspar">
-                    <div class="link-icon" style="background-color:#009aa6;">
-                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
-                    </div>
-                    <span class="link-name">Currículo Lattes</span>
-                </a>
+                        <a class="link" href="https://www.instagram.com/gaspar.arthur_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Arthur Gaspar">
+                            <div class="link-icon" style="background-color:#E4405F;">
+                                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                            </div>
+                            <span class="link-name">Instagram</span>
+                        </a>
 
-            </nav>
+                        <a class="link" href="http://lattes.cnpq.br/1517261797918288" target="_blank" rel="noopener noreferrer" aria-label="Currículo Lattes de Arthur Gaspar">
+                            <div class="link-icon" style="background-color:#009aa6;">
+                                <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                            </div>
+                            <span class="link-name">Currículo Lattes</span>
+                        </a>
 
-            <!-- Participações acadêmicas -->
-            <div class="screen-section-divider">
-                <span>Participações Acadêmicas</span>
-            </div>
-
-            <div class="parts-wrapper">
-                <button id="part-toggle" class="part-btn" aria-expanded="false" aria-controls="part-list">
-                    <span>Ver todas <span class="part-count">(9)</span></span>
-                    <i class="fa-solid fa-chevron-down chevron" aria-hidden="true"></i>
-                </button>
-
-                <div id="part-list" class="part-list" aria-hidden="true">
-
-                    <div class="year-group">
-                        <span class="year-label">2026</span>
-                        <ul>
-                            <li>
-                                <span class="ptype congresso">Congresso</span>
-                                Congresso da União Brasileira de Estudantes Secundaristas
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="year-group">
-                        <span class="year-label">2025</span>
-                        <ul>
-                            <li>
-                                <span class="ptype congresso">Congresso</span>
-                                Universo IF — Levantamento Botânico de Plantas Tóxicas no IFMA
-                            </li>
-                            <li>
-                                <span class="ptype seminario">Seminário</span>
-                                <span class="prize-badge">🥇 1º Lugar</span>
-                                Seminário de IC — Levantamento Botânico de Plantas Tóxicas no IFMA
-                            </li>
-                            <li>
-                                <span class="ptype seminario">Seminário</span>
-                                Semana Interdisciplinar de Meio Ambiente e Química
-                            </li>
-                            <li>
-                                <span class="ptype seminario">Seminário</span>
-                                Construção do PPP do IFMA — Campus Imperatriz
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="year-group">
-                        <span class="year-label">2024</span>
-                        <ul>
-                            <li>
-                                <span class="ptype oficina">Oficina</span>
-                                Seminário de IC: Técnicas de Resolução de Problemas Matemáticos
-                            </li>
-                            <li>
-                                <span class="ptype oficina">Oficina</span>
-                                Seminário de IC: Desenvolvendo seu próprio assistente pessoal com Gemini
-                            </li>
-                            <li>
-                                <span class="ptype seminario">Seminário</span>
-                                Seminário de Iniciação Científica
-                            </li>
-                            <li>
-                                <span class="ptype seminario">Seminário</span>
-                                Semana Interdisciplinar de Meio Ambiente e Química 2024
-                            </li>
-                        </ul>
-                    </div>
-
+                    </nav>
                 </div>
+
+                <!-- ── Coluna 2: Trajetória ──────────────────────────── -->
+                <div class="hist-col">
+                    <p class="hist-col-label">Trajetória</p>
+                    <div class="timeline">
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">2026</span>
+                                <strong class="tl-title">Aluno Pesquisador PIBIC/CNPq</strong>
+                                <p class="tl-desc">Avaliação da Atividade Antimicrobiana de Óleos Essenciais de Plantas "Venenosas" — Orientador: Prof. Msc. Alielson Botelho Correa</p>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">mai/2026</span>
+                                <strong class="tl-title">🥉 3º Lugar · Olimpíada Brasileira de Geopolítica</strong>
+                                <button class="tl-cert-btn card-clickable" data-modal="terceiro" aria-label="Ver certificado OBG">
+                                    <img src="assets/img/certificado-obgp.jpg" alt="Certificado 3º Lugar OBG 2026" loading="lazy">
+                                    <span>Ver certificado</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">abr/2026 · São Bernardo do Campo – SP</span>
+                                <strong class="tl-title">46º Congresso da UBES (CONUBES)</strong>
+                                <p class="tl-desc">Representando o Grêmio Paulo Freire. Tema: Democracia e soberania.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">jan/2026</span>
+                                <strong class="tl-title">Eleito Secretário-Geral · Grêmio Estudantil Paulo Freire</strong>
+                                <p class="tl-desc">Gestão, secretaria, atas e articulação com a direção do campus.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">nov/2025 · IFMA Imperatriz</span>
+                                <strong class="tl-title">🥇 1º Lugar · Seminário de IC · área "Outros"</strong>
+                                <p class="tl-desc">Levantamento Botânico de Plantas Tóxicas no IFMA.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">nov/2025</span>
+                                <strong class="tl-title">Universo IF · apresentação do Levantamento Botânico</strong>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">2024 – 2025</span>
+                                <strong class="tl-title">Aluno Pesquisador PIBIC/CNPq</strong>
+                                <p class="tl-desc">Levantamento Botânico de Plantas Tóxicas — Orientadora: Prof.ª Dr.ª Patrícia Gobira.</p>
+                            </div>
+                        </div>
+                        <div class="tl-item">
+                            <div class="tl-dot tl-dot-active"></div>
+                            <div class="tl-content">
+                                <span class="tl-date">2024 · Imperatriz – MA</span>
+                                <strong class="tl-title">Ingresso no IFMA — Técnico em Química Integrado ao Ensino Médio</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Coluna 3: Participações Acadêmicas ────────────── -->
+                <div class="hist-col">
+                    <p class="hist-col-label">Participações Acadêmicas</p>
+                    <div id="part-list" class="part-list open" aria-hidden="false">
+
+                        <div class="year-group">
+                            <span class="year-label">2026</span>
+                            <ul>
+                                <li>
+                                    <span class="ptype congresso">Congresso</span>
+                                    Congresso da União Brasileira de Estudantes Secundaristas
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="year-group">
+                            <span class="year-label">2025</span>
+                            <ul>
+                                <li>
+                                    <span class="ptype congresso">Congresso</span>
+                                    Universo IF — Levantamento Botânico de Plantas Tóxicas no IFMA
+                                </li>
+                                <li>
+                                    <span class="ptype seminario">Seminário</span>
+                                    <span class="prize-badge">🥇 1º Lugar</span>
+                                    Seminário de IC — Levantamento Botânico de Plantas Tóxicas no IFMA
+                                </li>
+                                <li>
+                                    <span class="ptype seminario">Seminário</span>
+                                    Semana Interdisciplinar de Meio Ambiente e Química
+                                </li>
+                                <li>
+                                    <span class="ptype seminario">Seminário</span>
+                                    Construção do PPP do IFMA — Campus Imperatriz
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="year-group">
+                            <span class="year-label">2024</span>
+                            <ul>
+                                <li>
+                                    <span class="ptype oficina">Oficina</span>
+                                    Seminário de IC: Técnicas de Resolução de Problemas Matemáticos
+                                </li>
+                                <li>
+                                    <span class="ptype oficina">Oficina</span>
+                                    Seminário de IC: Desenvolvendo seu próprio assistente pessoal com Gemini
+                                </li>
+                                <li>
+                                    <span class="ptype seminario">Seminário</span>
+                                    Seminário de Iniciação Científica
+                                </li>
+                                <li>
+                                    <span class="ptype seminario">Seminário</span>
+                                    Semana Interdisciplinar de Meio Ambiente e Química 2024
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -505,7 +661,7 @@
 
                     <div class="project-card">
                         <div class="project-header">
-                            <span class="project-status status-active">Finalizado</span>
+                            <span class="project-status status-done">Finalizado</span>
                             <span class="project-period">2024 – 2025</span>
                         </div>
                         <h3 class="project-name">Levantamento Botânico de Plantas Tóxicas no IFMA</h3>
@@ -543,7 +699,7 @@
 
                 <!-- GRÊMIO -->
                 <div id="modal-gremio" class="modal-content" hidden>
-                    <h2 class="modal-title">🏛️ Grêmio Paulo Freire</h2>
+                    <h2 class="modal-title">🏛️ Grêmio Estudantil Paulo Freire</h2>
                     <p class="modal-subtitle">Grêmio Estudantil · IFMA Campus Imperatriz</p>
 
                     <div class="timeline">
@@ -646,11 +802,97 @@
                                 <p class="cert-name">Arthur Santana Gaspar Lima</p>
                                 <p class="cert-year">2026</p>
                             </div>
-                            <div class="gallery-slot cert-slot">
-                                <i class="fa-solid fa-award" aria-hidden="true"></i>
-                                <span>Certificado em breve</span>
-                            </div>
+                            <a class="gallery-slot gallery-slot-img" href="assets/img/certificado-obgp.jpg" target="_blank" rel="noopener" title="Ver certificado em tamanho completo">
+                                <img src="assets/img/certificado-obgp.jpg" alt="Certificado 3º Lugar Olimpíada Brasileira de Geopolítica 2026" loading="lazy">
+                                <span class="gallery-caption">Certificado · clique para ampliar</span>
+                            </a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- PROJETO 1 -->
+                <div id="modal-proj1" class="modal-content" hidden>
+                    <div class="proj-modal-top">
+                        <div class="proj-card-meta">
+                            <span class="project-status status-done">Finalizado</span>
+                            <span class="project-period">2024 – 2025</span>
+                            <span class="proj-type-badge">PIBIC · CNPq</span>
+                        </div>
+                        <h2 class="modal-title">🌿 Levantamento Botânico de Plantas Tóxicas no IFMA</h2>
+                        <p class="modal-subtitle">Campus Imperatriz · Orientadora: Prof.ª Dr.ª Patrícia Suelene Silva Costa Gobira</p>
+                    </div>
+                    <div class="proj-award-banner">🥇 1º Lugar · Seminário de IC · IFMA 2025 · Área "Outros"</div>
+                    <div class="proj-modal-section">
+                        <p class="proj-modal-label">Sobre o projeto</p>
+                        <p class="project-desc">Levantamento etnobotânico e bioquímico de espécies vegetais com potencial tóxico no campus IFMA — Imperatriz. As amostras foram coletadas, identificadas taxonomicamente e submetidas a triagem fitoquímica para detecção de metabólitos secundários e análise de óleos essenciais.</p>
+                    </div>
+                    <div class="proj-modal-section">
+                        <p class="proj-modal-label">Metodologia</p>
+                        <ul class="proj-steps">
+                            <li>Coleta e herborização de espécies do campus</li>
+                            <li>Identificação taxonômica por comparação bibliográfica</li>
+                            <li>Extração de óleos essenciais por hidrodestilação</li>
+                            <li>Triagem fitoquímica (alcaloides, flavonoides, taninos…)</li>
+                            <li>Catalogação com registro fotográfico</li>
+                        </ul>
+                    </div>
+                    <div class="project-tags" style="margin-bottom:12px">
+                        <span class="project-tag">🌿 Botânica</span>
+                        <span class="project-tag">⚗️ Fitoquímica</span>
+                        <span class="project-tag">🐍 Plantas tóxicas</span>
+                        <span class="project-tag">🔬 PIBIC</span>
+                    </div>
+                    <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr)">
+                        <a class="gallery-slot gallery-slot-img" href="assets/img/foto-equipe-pibic.jpg" target="_blank" rel="noopener" title="Equipe do projeto">
+                            <img src="assets/img/foto-equipe-pibic.jpg" alt="Equipe do projeto PIBIC — Arthur, voluntários, colaboradores e Prof.ª Dr.ª Patrícia Gobira" loading="lazy">
+                            <span class="gallery-caption">Equipe</span>
+                        </a>
+                        <a class="gallery-slot gallery-slot-img" href="assets/img/foto-caladium-estufa.jpg" target="_blank" rel="noopener" title="Caladium bicolor · preparação para estufa">
+                            <img src="assets/img/foto-caladium-estufa.jpg" alt="Caladium bicolor sendo preparado para a estufa" loading="lazy">
+                            <span class="gallery-caption">Lab · Caladium</span>
+                        </a>
+                        <a class="gallery-slot gallery-slot-img" href="assets/img/foto-apresentacao-universo-if.jpg" target="_blank" rel="noopener" title="Apresentação no Universo IF">
+                            <img src="assets/img/foto-apresentacao-universo-if.jpg" alt="Arthur apresentando o Levantamento Botânico no Universo IF 2025" loading="lazy">
+                            <span class="gallery-caption">Universo IF</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- PROJETO 2 -->
+                <div id="modal-proj2" class="modal-content" hidden>
+                    <div class="proj-modal-top">
+                        <div class="proj-card-meta">
+                            <span class="project-status status-active">Em andamento</span>
+                            <span class="project-period">2026 – presente</span>
+                            <span class="proj-type-badge">PIBIC · CNPq</span>
+                        </div>
+                        <h2 class="modal-title">🦠 Atividade Antimicrobiana de Óleos Essenciais de Plantas "Venenosas"</h2>
+                        <p class="modal-subtitle">Campus Imperatriz · Orientador: Prof. Msc. Alielson Correa Botelho</p>
+                    </div>
+                    <div class="proj-modal-section">
+                        <p class="proj-modal-label">Sobre o projeto</p>
+                        <p class="project-desc">A crescente resistência microbiana aos fármacos convencionais impulsiona a busca por alternativas naturais. Este projeto avalia a atividade antimicrobiana de óleos essenciais extraídos de espécies ditas "venenosas" do campus, correlacionando composição fitoquímica com efeitos ecotoxicológicos em organismos bioindicadores.</p>
+                    </div>
+                    <div class="proj-modal-section">
+                        <p class="proj-modal-label">Metodologia</p>
+                        <ul class="proj-steps">
+                            <li>Extração de óleos essenciais por hidrodestilação</li>
+                            <li>Caracterização fitoquímica por testes qualitativos e cromatografia</li>
+                            <li>Avaliação antimicrobiana frente a <em>E. coli</em> — difusão em disco</li>
+                            <li>Testes ecotoxicológicos com sementes de feijão</li>
+                            <li>Análise de germinação e desenvolvimento radicular</li>
+                        </ul>
+                    </div>
+                    <div class="project-tags" style="margin-bottom:12px">
+                        <span class="project-tag">🦠 Antimicrobiano</span>
+                        <span class="project-tag">🌿 Óleos Essenciais</span>
+                        <span class="project-tag">⚗️ Fitoquímica</span>
+                        <span class="project-tag">🌱 Ecotoxicologia</span>
+                    </div>
+                    <div class="gallery-grid" style="grid-template-columns:repeat(3,1fr)">
+                        <div class="gallery-slot"><i class="fa-solid fa-image"></i><span>Em breve</span></div>
+                        <div class="gallery-slot"><i class="fa-solid fa-image"></i><span>Em breve</span></div>
+                        <div class="gallery-slot"><i class="fa-solid fa-image"></i><span>Em breve</span></div>
                     </div>
                 </div>
 
@@ -684,6 +926,11 @@
                             <span class="stat-icon">🦴</span>
                             <span class="stat-label">ossos quebrados</span>
                         </div>
+                        <div class="stat-card">
+                            <span class="stat-number" data-target="900">0</span>
+                            <span class="stat-icon">🧪</span>
+                            <span class="stat-label">horas de laboratório</span>
+                        </div>
                     </div>
                     <p class="stats-hint">
                         <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
@@ -699,6 +946,33 @@
     <button id="anim-toggle" aria-label="Pausar animação de fundo" title="Pausar animação">
         <i class="fa-solid fa-pause" aria-hidden="true"></i>
     </button>
+
+    <!-- Terminal interativo -->
+    <button id="terminal-btn" class="terminal-btn" aria-label="Abrir terminal" title="Terminal interativo">
+        <i class="fa-solid fa-terminal"></i>
+    </button>
+    <div id="terminal-modal" class="terminal-modal" aria-hidden="true">
+        <div class="terminal-header">
+            <div class="terminal-dots"><span class="td-red"></span><span class="td-yellow"></span><span class="td-green"></span></div>
+            <span class="terminal-title">arthur@gaspar: ~</span>
+            <button id="terminal-close" aria-label="Fechar">✕</button>
+        </div>
+        <div class="terminal-output" id="terminal-output"></div>
+        <div class="terminal-input-row">
+            <span class="t-prompt">arthur@gaspar:~$</span>
+            <input id="terminal-input" type="text" class="terminal-input" autocomplete="off" spellcheck="false" aria-label="Comando">
+        </div>
+    </div>
+
+    <!-- Voltar ao topo -->
+    <button id="back-to-top" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- Loading screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">A</div>
+    </div>
 
     <script src="assets/js/script.js"></script>
 </body>

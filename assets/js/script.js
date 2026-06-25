@@ -11,7 +11,7 @@
 const LASTFM_USER    = 'gaspararthur';  // ex: 'ogaspar__'
 const LASTFM_API_KEY = 'ac6ed5a2cfc0765493542185bbe495d5';  // ex: 'a1b2c3d4e5f6...'
 
-// Contador de visitantes — namespace único do site (não mude depois de publicar)
+// Contador de visitantes — namespace único do site
 const COUNTER_NAMESPACE = 'gaspararthur-github-io';
 const COUNTER_KEY       = 'visitas';
 
@@ -20,55 +20,68 @@ const COUNTER_KEY       = 'visitas';
 (function () {
 
   // ════════════════════════════════════════════════════════════
-  // 1. TROCA DE TELAS (bio / habilidades / links)
+  // 1. TROCA DE TELAS (bio / projetos / habilidades / histórico)
   // ════════════════════════════════════════════════════════════
-  const screenBio    = document.getElementById('screen-bio');
-  const screenSkills = document.getElementById('screen-skills');
-  const screenLinks  = document.getElementById('screen-links');
-  const btnSwitch    = document.getElementById('btn-switch');
-  const btnLabel     = document.getElementById('btn-switch-label');
-  const btnIcon      = document.getElementById('btn-switch-icon');
-  const btnSkills    = document.getElementById('btn-skills');
+  const screenBio      = document.getElementById('screen-bio');
+  const screenProjects = document.getElementById('screen-projects');
+  const screenSkills   = document.getElementById('screen-skills');
+  const screenLinks    = document.getElementById('screen-links');
+  const btnSwitch      = document.getElementById('btn-switch');
+  const btnLabel       = document.getElementById('btn-switch-label');
+  const btnIcon        = document.getElementById('btn-switch-icon');
+  const btnSkills      = document.getElementById('btn-skills');
   const btnSkillsLabel = document.getElementById('btn-skills-label');
+  const btnProjects    = document.getElementById('btn-projects');
+  const btnProjectsLabel = document.getElementById('btn-projects-label');
 
   let currentScreen = 'bio';
 
-  const screens = { bio: screenBio, skills: screenSkills, links: screenLinks };
+  const screens = { bio: screenBio, projects: screenProjects, skills: screenSkills, links: screenLinks };
 
   function goTo(target) {
     const from = screens[currentScreen];
     from.classList.remove('active');
-
     setTimeout(() => {
       const to = screens[target];
       to.scrollTop = 0;
       to.classList.add('active');
       currentScreen = target;
       syncNav();
+      if (target === 'projects') animateProjCounters();
+      if (target === 'skills')   animateSkillBars();
     }, 200);
   }
 
   function syncNav() {
-    // Reset btn-skills
     btnSkillsLabel.textContent = 'Habilidades';
     btnSkills.setAttribute('aria-label', 'Ver habilidades');
     btnSkills.classList.remove('active');
+    btnProjectsLabel.textContent = 'Projetos';
+    btnProjects.setAttribute('aria-label', 'Ver projetos');
+    btnProjects.classList.remove('active');
     btnSwitch.style.flexDirection = '';
 
     if (currentScreen === 'bio') {
-      btnLabel.textContent  = 'Mais informações';
-      btnIcon.className     = 'fa-solid fa-arrow-right';
-      btnSwitch.setAttribute('aria-label', 'Ver mais informações');
+      btnLabel.textContent = 'Histórico';
+      btnIcon.className    = 'fa-solid fa-arrow-right';
+      btnSwitch.setAttribute('aria-label', 'Ver histórico');
+    } else if (currentScreen === 'projects') {
+      btnProjectsLabel.textContent = 'Voltar';
+      btnProjects.setAttribute('aria-label', 'Voltar ao perfil');
+      btnProjects.classList.add('active');
+      btnLabel.textContent = 'Histórico';
+      btnIcon.className    = 'fa-solid fa-arrow-right';
+      btnSwitch.setAttribute('aria-label', 'Ver histórico');
     } else if (currentScreen === 'skills') {
       btnSkillsLabel.textContent = 'Voltar';
       btnSkills.setAttribute('aria-label', 'Voltar ao perfil');
       btnSkills.classList.add('active');
-      btnLabel.textContent  = 'Mais informações';
-      btnIcon.className     = 'fa-solid fa-arrow-right';
-      btnSwitch.setAttribute('aria-label', 'Ver mais informações');
+      btnLabel.textContent = 'Histórico';
+      btnIcon.className    = 'fa-solid fa-arrow-right';
+      btnSwitch.setAttribute('aria-label', 'Ver histórico');
     } else if (currentScreen === 'links') {
-      btnLabel.textContent  = 'Voltar';
-      btnIcon.className     = 'fa-solid fa-arrow-left';
+      btnLabel.textContent = 'Voltar';
+      btnIcon.className    = 'fa-solid fa-arrow-left';
       btnSwitch.style.flexDirection = 'row-reverse';
       btnSwitch.setAttribute('aria-label', 'Voltar ao perfil');
     }
@@ -84,19 +97,26 @@ const COUNTER_KEY       = 'visitas';
     else goTo('skills');
   });
 
+  btnProjects.addEventListener('click', () => {
+    if (currentScreen === 'projects') goTo('bio');
+    else goTo('projects');
+  });
+
   // ════════════════════════════════════════════════════════════
   // 2. PARTICIPAÇÕES — COLAPSÁVEL
   // ════════════════════════════════════════════════════════════
   const partToggle = document.getElementById('part-toggle');
   const partList   = document.getElementById('part-list');
-  const chevron    = partToggle.querySelector('.chevron');
 
-  partToggle.addEventListener('click', () => {
-    const isOpen = partList.classList.toggle('open');
-    chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
-    partToggle.setAttribute('aria-expanded', String(isOpen));
-    partList.setAttribute('aria-hidden', String(!isOpen));
-  });
+  if (partToggle && partList) {
+    const chevron = partToggle.querySelector('.chevron');
+    partToggle.addEventListener('click', () => {
+      const isOpen = partList.classList.toggle('open');
+      if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+      partToggle.setAttribute('aria-expanded', String(isOpen));
+      partList.setAttribute('aria-hidden', String(!isOpen));
+    });
+  }
 
   // ════════════════════════════════════════════════════════════
   // 3. MODAIS DOS CARDS
@@ -350,11 +370,11 @@ const COUNTER_KEY       = 'visitas';
       }
 
       if (isPlaying) {
-        spotifyStatus.textContent = 'Tocando agora';
+        spotifyStatus.textContent = 'Gaspar está ouvindo agora';
         spotifyStatus.classList.remove('last-played');
         spotifyBars.classList.add('playing');
       } else {
-        spotifyStatus.textContent = 'Tocado por último';
+        spotifyStatus.textContent = 'Gaspar ouviu por último';
         spotifyStatus.classList.add('last-played');
         spotifyBars.classList.remove('playing');
       }
@@ -369,9 +389,178 @@ const COUNTER_KEY       = 'visitas';
   setInterval(fetchNowPlaying, 30_000);
 
   // ════════════════════════════════════════════════════════════
-  // 8. SIDEBAR NAV — rolagem suave + destaque ativo por seção
+  // 8. LOADING SCREEN
+  // ════════════════════════════════════════════════════════════
+  const loadingScreen = document.getElementById('loading-screen');
+  if (loadingScreen) {
+    setTimeout(() => {
+      loadingScreen.classList.add('fade-out');
+      setTimeout(() => { loadingScreen.style.display = 'none'; }, 460);
+    }, 700);
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // 9. CONTADORES ANIMADOS (tela projetos)
+  // ════════════════════════════════════════════════════════════
+  function countUp(el) {
+    if (el.dataset.done) return;
+    el.dataset.done = '1';
+    const target = parseInt(el.dataset.target, 10);
+    if (!target) return;
+    const duration = 1000;
+    const start = performance.now();
+    (function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.round(target * ease);
+      if (t < 1) requestAnimationFrame(tick);
+    })(start);
+  }
+
+  function animateProjCounters() {
+    document.querySelectorAll('#screen-projects .proj-stat-num').forEach(countUp);
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // 10. BARRAS DE PROFICIÊNCIA (tela habilidades)
+  // ════════════════════════════════════════════════════════════
+  function animateSkillBars() {
+    document.querySelectorAll('.skill-bar-fill').forEach(el => el.classList.add('animated'));
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // 11. TERMINAL INTERATIVO
+  // ════════════════════════════════════════════════════════════
+  const terminalBtn    = document.getElementById('terminal-btn');
+  const terminalModal  = document.getElementById('terminal-modal');
+  const terminalClose  = document.getElementById('terminal-close');
+  const terminalOutput = document.getElementById('terminal-output');
+  const terminalInput  = document.getElementById('terminal-input');
+
+  const T_CMDS = {
+    help: () => [
+      '<span class="t-cyan">Comandos disponíveis:</span>',
+      '  <span class="t-yellow">about</span>      → Sobre mim',
+      '  <span class="t-yellow">projects</span>   → Projetos de pesquisa',
+      '  <span class="t-yellow">skills</span>     → Habilidades',
+      '  <span class="t-yellow">contact</span>    → Contato e redes sociais',
+      '  <span class="t-yellow">github</span>     → Abrir GitHub',
+      '  <span class="t-yellow">lattes</span>     → Abrir Currículo Lattes',
+      '  <span class="t-yellow">clear</span>      → Limpar terminal',
+      '  <span class="t-yellow">exit</span>       → Fechar terminal',
+    ],
+    about: () => [
+      '<span class="t-green">Arthur Santana Gaspar Lima</span>',
+      'Técnico em Química · IFMA — Campus Imperatriz',
+      'Secretário-Geral do Grêmio Paulo Freire · Pesquisador PIBIC/CNPq',
+      'Interesses: Fitoquímica · Botânica · Programação · Geopolítica',
+    ],
+    whoami: () => T_CMDS.about(),
+    projects: () => [
+      '<span class="t-cyan">Projetos de Pesquisa:</span>',
+      '  <span class="t-white">[1]</span> Levantamento Botânico de Plantas Tóxicas · 2024–2025  <span class="t-yellow">✓ 1º Lugar SEMIC</span>',
+      '  <span class="t-white">[2]</span> Atividade Antimicrobiana de Óleos Essenciais · 2026–   <span class="t-green">● Em andamento</span>',
+    ],
+    skills: () => [
+      '<span class="t-cyan">Habilidades:</span>',
+      '  Escrita científica  <span class="t-green">██████████</span> 90%',
+      '  Liderança           <span class="t-green">█████████░</span> 88%',
+      '  Pesquisa            <span class="t-green">████████░░</span> 84%',
+      '  Geopolítica         <span class="t-green">████████░░</span> 80%',
+      '  Python/JS           <span class="t-yellow">██████░░░░</span> 65%',
+    ],
+    contact: () => [
+      '<span class="t-cyan">Contato:</span>',
+      '  GitHub    → github.com/gaspararthur',
+      '  LinkedIn  → linkedin.com/in/arthur-santana-gaspar-lima-293b7a251',
+      '  Instagram → @gaspar.arthur_',
+      '  X         → @ogaspar__',
+      '  E-mail    → gaspar.arthur@acad.ifma.edu.br',
+    ],
+    github:  () => { window.open('https://github.com/gaspararthur','_blank'); return ['<span class="t-green">Abrindo GitHub...</span>']; },
+    lattes:  () => { window.open('http://lattes.cnpq.br/1517261797918288','_blank'); return ['<span class="t-green">Abrindo Currículo Lattes...</span>']; },
+    clear:   () => { terminalOutput.innerHTML = ''; return null; },
+    exit:    () => { closeTerminal(); return null; },
+    // Easter eggs
+    'c6h6':           () => ['<span class="t-cyan">C₆H₆ — Benzeno</span>','    \\   /','  — C = C —',' /         \\','C           C',' \\         /','  — C = C —','    /   \\','<span class="t-dim">Estrutura aromática · Kekulé (1865)</span>'],
+    'h2o':            () => ['  H   H','   \\ /','    O','<span class="t-cyan">H₂O — A molécula da vida.</span>'],
+    'sudo':           () => ['<span class="t-red">Este sistema não requer superpoderes.</span>'],
+    'import gaspar':  () => ['<span class="t-green">Importando gaspar...</span>','<span class="t-cyan">Loaded:</span> curiosidade, persistência, café ☕'],
+    'print("hello")': () => ['<span class="t-green">Hello, World! 🌎</span>'],
+    'npm start':      () => ['<span class="t-red">npm: não encontrado.</span> Tente Python.'],
+  };
+
+  function tPrint(lines) {
+    if (!lines) return;
+    lines.forEach(html => {
+      const p = document.createElement('p');
+      p.className = 't-line t-white';
+      p.innerHTML = html;
+      terminalOutput.appendChild(p);
+    });
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
+
+  function tCmd(raw) {
+    const p = document.createElement('p');
+    p.className = 't-line';
+    p.innerHTML = `<span class="t-cyan">arthur@gaspar:~$</span> <span class="t-cmd">${raw}</span>`;
+    terminalOutput.appendChild(p);
+  }
+
+  function processCmd(raw) {
+    const cmd = raw.trim().toLowerCase();
+    if (!cmd) return;
+    tCmd(raw.trim());
+    const fn = T_CMDS[cmd];
+    if (fn) {
+      tPrint(fn());
+    } else {
+      tPrint([`<span class="t-red">Comando não encontrado: ${cmd}</span>  Digite <span class="t-cyan">help</span>.`]);
+    }
+    terminalOutput.scrollTop = terminalOutput.scrollHeight;
+  }
+
+  function openTerminal() {
+    terminalModal.classList.add('open');
+    terminalModal.setAttribute('aria-hidden','false');
+    if (!terminalOutput.children.length) {
+      tPrint([
+        '<span class="t-green">Arthur Gaspar — Terminal v1.0</span>',
+        '<span class="t-dim">Digite <span class="t-cyan">help</span> para ver os comandos.</span>',
+        '<span class="t-dim">──────────────────────────────</span>',
+      ]);
+    }
+    setTimeout(() => terminalInput.focus(), 80);
+  }
+
+  function closeTerminal() {
+    terminalModal.classList.remove('open');
+    terminalModal.setAttribute('aria-hidden','true');
+  }
+
+  terminalBtn.addEventListener('click', () => terminalModal.classList.contains('open') ? closeTerminal() : openTerminal());
+  terminalClose.addEventListener('click', closeTerminal);
+  terminalInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { const v = terminalInput.value; terminalInput.value = ''; processCmd(v); }
+  });
+
+  // ════════════════════════════════════════════════════════════
+  // 13. SIDEBAR NAV — rolagem suave + destaque ativo por seção
   // ════════════════════════════════════════════════════════════
   const bioContent  = document.querySelector('.bio-content');
+
+  // Voltar ao topo
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (bioContent && backToTopBtn) {
+    bioContent.addEventListener('scroll', () => {
+      backToTopBtn.classList.toggle('visible', bioContent.scrollTop > 120);
+    });
+    backToTopBtn.addEventListener('click', () => {
+      bioContent.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
   const sideLinks   = Array.from(document.querySelectorAll('.sidebar-link'));
 
   // Clique → rola o painel direito até a seção
