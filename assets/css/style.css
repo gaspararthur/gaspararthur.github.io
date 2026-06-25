@@ -682,8 +682,8 @@ header {
 }
 
 .avatar-sm {
-    width: 64px;
-    height: 64px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #009aa6;
@@ -794,7 +794,7 @@ header {
 .hist-cols {
     display: grid;
     grid-template-columns: minmax(0,1fr) minmax(0,1.5fr) minmax(0,1.4fr);
-    gap: 1.5rem 2.5rem;
+    gap: 1.5rem 5rem;
     align-items: start;
     margin-top: 1rem;
     width: 100%;
@@ -1055,7 +1055,7 @@ header {
 .project-advisor { font-size: 0.68rem; color: #555; }
 .project-type    { font-size: 0.65rem; color: #444; font-weight: 600; letter-spacing: 0.04em; }
 
-/* ── Timeline ────────────────────────────────────────────── */
+/* ── Timeline (padrão — modais) ─────────────────────────── */
 .timeline {
     display: flex;
     flex-direction: column;
@@ -1128,6 +1128,43 @@ header {
     font-size: 0.76rem;
     color: #666;
     line-height: 1.55;
+}
+
+/* ── Timeline flat (Trajetória na tela de Histórico) ──── */
+.hist-cols .tl-item {
+    display: grid;
+    grid-template-columns: 58px 1fr;
+    gap: 0 14px;
+    padding: 1rem 0;
+    padding-left: 0;
+    border-bottom: 1px solid #151515;
+    position: static;
+}
+
+.hist-cols .tl-item:last-child { border-bottom: none; padding-bottom: 0; }
+.hist-cols .tl-item:first-child { padding-top: 0; }
+.hist-cols .tl-item::before, .hist-cols .tl-item .tl-dot { display: none; }
+
+.hist-cols .tl-date {
+    font-size: 0.63rem;
+    font-weight: 500;
+    color: #444;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    line-height: 1.35;
+    padding-top: 3px;
+    margin-bottom: 0;
+}
+
+.hist-cols .tl-content { flex: unset; }
+
+.hist-cols .tl-title {
+    font-size: 0.84rem;
+    color: #d8d8d8;
+}
+
+.hist-cols .tl-desc {
+    color: #555;
 }
 
 .tl-gallery {
