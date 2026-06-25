@@ -368,4 +368,35 @@ const COUNTER_KEY       = 'visitas';
   fetchNowPlaying();
   setInterval(fetchNowPlaying, 30_000);
 
+  // ════════════════════════════════════════════════════════════
+  // 8. SIDEBAR NAV — rolagem suave + destaque ativo por seção
+  // ════════════════════════════════════════════════════════════
+  const bioContent  = document.querySelector('.bio-content');
+  const sideLinks   = Array.from(document.querySelectorAll('.sidebar-link'));
+
+  // Clique → rola o painel direito até a seção
+  sideLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target || !bioContent) return;
+      e.preventDefault();
+      const scrollTop = target.getBoundingClientRect().top - bioContent.getBoundingClientRect().top + bioContent.scrollTop - 32;
+      bioContent.scrollTo({ top: scrollTop, behavior: 'smooth' });
+    });
+  });
+
+  // IntersectionObserver → marca o link da seção visível como ativo
+  const sections = Array.from(document.querySelectorAll('.bio-content .section-block'));
+
+  if (sections.length && bioContent) {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const link = sideLinks.find(l => l.getAttribute('href') === '#' + entry.target.id);
+        if (link) link.classList.toggle('active', entry.isIntersecting);
+      });
+    }, { root: bioContent, threshold: 0.25 });
+
+    sections.forEach(s => obs.observe(s));
+  }
+
 })();
