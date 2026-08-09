@@ -35,13 +35,27 @@ const COUNTER_KEY       = 'visitas';
   const btnProjectsLabel = document.getElementById('btn-projects-label');
 
   let currentScreen = 'bio';
+  let screenTransitionTimer = null;
 
   const screens = { bio: screenBio, projects: screenProjects, skills: screenSkills, links: screenLinks };
 
-  function goTo(target) {
+  function goTo(target, options = {}) {
+    if (!screens[target]) return;
+    const immediate = options.immediate === true;
+
+    window.clearTimeout(screenTransitionTimer);
+
+    if (target === currentScreen) {
+      syncNav();
+      if (target === 'projects') animateProjCounters();
+      if (target === 'skills')   animateSkillBars();
+      return;
+    }
+
     const from = screens[currentScreen];
     from.classList.remove('active');
-    setTimeout(() => {
+
+    const finishTransition = () => {
       const to = screens[target];
       to.scrollTop = 0;
       to.classList.add('active');
@@ -49,7 +63,21 @@ const COUNTER_KEY       = 'visitas';
       syncNav();
       if (target === 'projects') animateProjCounters();
       if (target === 'skills')   animateSkillBars();
-    }, 200);
+      if (target === 'links')  { animateTrajectory(); renderParts(); }
+    };
+
+    if (immediate) finishTransition();
+    else screenTransitionTimer = window.setTimeout(finishTransition, 200);
+  }
+
+  function clearProjectsHash() {
+    if (window.location.hash !== '#projetos') return;
+    window.history.replaceState(null, '', window.location.pathname + window.location.search);
+  }
+
+  function goToFromNav(target) {
+    if (target !== 'projects') clearProjectsHash();
+    goTo(target);
   }
 
   function syncNav() {
@@ -88,19 +116,30 @@ const COUNTER_KEY       = 'visitas';
   }
 
   btnSwitch.addEventListener('click', () => {
-    if (currentScreen === 'links') goTo('bio');
-    else goTo('links');
+    if (currentScreen === 'links') goToFromNav('bio');
+    else goToFromNav('links');
   });
 
   btnSkills.addEventListener('click', () => {
-    if (currentScreen === 'skills') goTo('bio');
-    else goTo('skills');
+    if (currentScreen === 'skills') goToFromNav('bio');
+    else goToFromNav('skills');
   });
 
   btnProjects.addEventListener('click', () => {
-    if (currentScreen === 'projects') goTo('bio');
+    if (currentScreen === 'projects') goToFromNav('bio');
     else goTo('projects');
   });
+
+  function syncScreenWithHash(options = {}) {
+    if (window.location.hash === '#projetos') {
+      goTo('projects', options);
+    } else if (currentScreen === 'projects') {
+      goTo('bio', options);
+    }
+  }
+
+  window.addEventListener('hashchange', () => syncScreenWithHash());
+  syncScreenWithHash({ immediate: true });
 
   // ════════════════════════════════════════════════════════════
   // 2. PARTICIPAÇÕES — COLAPSÁVEL
@@ -126,8 +165,10 @@ const COUNTER_KEY       = 'visitas';
   const modalCloseBtn = document.getElementById('modal-close-btn');
 
   function openModal(id) {
+    const content = document.getElementById('modal-' + id);
+    if (!content) return;
     document.querySelectorAll('.modal-content').forEach(c => { c.hidden = true; });
-    document.getElementById('modal-' + id).hidden = false;
+    content.hidden = false;
     modalOverlay.setAttribute('aria-hidden', 'false');
     modalOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -148,7 +189,7 @@ const COUNTER_KEY       = 'visitas';
     if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
   });
 
-  document.querySelectorAll('.card-clickable').forEach(card => {
+  document.querySelectorAll('.card-clickable[data-modal]').forEach(card => {
     card.addEventListener('click', () => openModal(card.dataset.modal));
     card.addEventListener('keydown', e => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -188,11 +229,11 @@ const COUNTER_KEY       = 'visitas';
     const roll = Math.random();
     let type, text, color;
 
-    if      (roll < 0.18) { type = 'formula'; text = pick(CHEM_FORMULAS); color = '#009aa6'; }
-    else if (roll < 0.36) { type = 'element'; text = pick(ELEMENTS);      color = '#00c4d1'; }
-    else if (roll < 0.60) { type = 'code';    text = pick(CODE_SNIPPETS); color = '#7c3aed'; }
-    else if (roll < 0.70) { type = 'math';    text = pick(MATH_SYMBOLS);  color = '#009aa6'; }
-    else if (roll < 0.83) { type = 'benzene'; text = null;                color = '#009aa6'; }
+    if      (roll < 0.22) { type = 'formula'; text = pick(CHEM_FORMULAS); color = '#009aa6'; }
+    else if (roll < 0.42) { type = 'element'; text = pick(ELEMENTS);      color = '#00c4d1'; }
+    else if (roll < 0.62) { type = 'code';    text = pick(CODE_SNIPPETS); color = '#4a6b70'; }
+    else if (roll < 0.72) { type = 'math';    text = pick(MATH_SYMBOLS);  color = '#009aa6'; }
+    else if (roll < 0.86) { type = 'benzene'; text = null;                color = '#009aa6'; }
     else                  { type = 'atom';    text = null;                color = '#009aa6'; }
 
     return {
@@ -200,7 +241,7 @@ const COUNTER_KEY       = 'visitas';
       y:           scatter ? rand(-canvas.height, canvas.height) : canvas.height + rand(10, 60),
       vy:          -rand(0.18, 0.52),
       vx:          (Math.random() - 0.5) * 0.25,
-      opacity:     rand(0.07, 0.20),
+      opacity:     rand(0.05, 0.15),
       fontSize:    type === 'element' ? rand(11, 22) : rand(11, 17),
       size:        rand(10, 20),
       type, text, color,
@@ -210,7 +251,8 @@ const COUNTER_KEY       = 'visitas';
     };
   }
 
-  const particles = Array.from({ length: 65 }, () => createParticle(true));
+  const PARTICLE_COUNT = window.innerWidth < 700 ? 22 : 38;
+  const particles = Array.from({ length: PARTICLE_COUNT }, () => createParticle(true));
 
   function drawBenzene(p) {
     const { x, y, size, opacity, color } = p;
@@ -586,6 +628,91 @@ const COUNTER_KEY       = 'visitas';
     }, { root: bioContent, threshold: 0.25 });
 
     sections.forEach(s => obs.observe(s));
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // 14. TRAJETÓRIA INTERATIVA (tela Histórico)
+  // ════════════════════════════════════════════════════════════
+  const traj = document.getElementById('traj');
+  if (traj) {
+    const items = Array.from(traj.querySelectorAll('.traj-item'));
+    const heads = items.map(i => i.querySelector('.traj-head'));
+
+    // Abre o item idx (acordeão) e preenche o trilho até ele
+    function openItem(idx) {
+      items.forEach((item, i) => {
+        const isActive = i === idx;
+        item.classList.toggle('active', isActive);
+        item.classList.toggle('reached', i <= idx);
+        if (heads[i]) heads[i].setAttribute('aria-expanded', isActive ? 'true' : 'false');
+      });
+    }
+
+    // Fecha todos, mantendo o trilho preenchido até o índice anterior
+    function collapseTo(idx) {
+      items.forEach((item, i) => {
+        item.classList.remove('active');
+        item.classList.toggle('reached', i < idx);
+        if (heads[i]) heads[i].setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    heads.forEach((head, i) => {
+      head.addEventListener('click', () => {
+        if (items[i].classList.contains('active')) collapseTo(i);
+        else openItem(i);
+      });
+    });
+
+    openItem(0); // primeiro item aberto por padrão
+  }
+
+  // Reexecuta a animação de entrada da trajetória ao abrir a tela
+  function animateTrajectory() {
+    const t = document.getElementById('traj');
+    if (!t) return;
+    t.classList.remove('animate');
+    void t.offsetWidth; // força reflow para reiniciar a animação
+    t.classList.add('animate');
+  }
+
+  // ════════════════════════════════════════════════════════════
+  // 15. PARTICIPAÇÕES — FILTRO INTERATIVO
+  // ════════════════════════════════════════════════════════════
+  const partsFilters = document.getElementById('parts-filters');
+  const partsList    = document.getElementById('parts-list');
+
+  // Aplica o filtro ativo e reanima os cards visíveis (com stagger)
+  function renderParts() {
+    if (!partsFilters || !partsList) return;
+    const active = partsFilters.querySelector('.parts-filter.active');
+    const type   = active ? active.getAttribute('data-filter') : 'all';
+    const cards  = Array.from(partsList.querySelectorAll('.part-card'));
+    let vis = 0;
+    cards.forEach(card => {
+      const match = type === 'all' || card.getAttribute('data-type') === type;
+      card.style.display = match ? '' : 'none';
+      if (match) {
+        card.style.setProperty('--pi', vis++);
+        card.classList.remove('part-in');
+        void card.offsetWidth; // reflow para reiniciar a animação
+        card.classList.add('part-in');
+      }
+    });
+  }
+
+  if (partsFilters && partsList) {
+    const filterBtns = Array.from(partsFilters.querySelectorAll('.parts-filter'));
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          const on = b === btn;
+          b.classList.toggle('active', on);
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        renderParts();
+      });
+    });
   }
 
 })();

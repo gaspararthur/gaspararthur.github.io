@@ -61,12 +61,11 @@
                 <div class="tags">
                     <span class="tag">IFMA · Imperatriz, MA</span>
                     <span class="tag">Apaixonado por café</span>
-                    <span class="tag-flu">⚽ Fluminense</span>
                 </div>
 
                 <nav class="sidebar-nav" aria-label="Seções do perfil">
-                    <a href="#section-now" class="sidebar-link">Atualmente</a>
                     <a href="#section-highlights" class="sidebar-link">Destaques</a>
+                    <a href="#section-now" class="sidebar-link">Atualmente</a>
                     <a href="#section-flu" class="sidebar-link">Fluminense</a>
                 </nav>
 
@@ -108,97 +107,25 @@
 
             <!-- ── Conteúdo principal ── -->
             <main class="bio-content">
-            <div class="bio-main-cols">
 
-                <!-- Coluna esquerda: intro + Atualmente + Fluminense -->
-                <div class="bio-left-col">
+                <!-- ── HERO: apresentação + destaques ── -->
+                <div class="bio-hero">
 
-                    <h2 class="bio-greeting">Olá! Sou o Gaspar. <span aria-hidden="true">👋</span></h2>
+                    <div class="bio-lead">
+                        <h2 class="bio-greeting">Olá! Sou o Gaspar. <span aria-hidden="true">👋</span></h2>
+                        <p class="intro">
+                            Estudante de Técnico Integrado em Química no IFMA — Campus Imperatriz desde 2024,
+                            com interesse em pesquisa científica e programação. Atuo como Secretário-Geral
+                            do Grêmio Estudantil Paulo Freire e desenvolvo alguns projetos básicos em Python, Java e JavaScript.
+                        </p>
+                    </div>
 
-                    <p class="intro">
-                        Estudante de Técnico Integrado em Química no IFMA — Campus Imperatriz desde 2024,
-                        com interesse em pesquisa científica e programação. Atuo como Secretário-Geral
-                        do Grêmio Estudantil Paulo Freire e desenvolvo alguns projetos básicos em Python, Java e JavaScript.
-                    </p>
-
-                    <!-- Atualmente -->
-                    <section id="section-now" class="section-block">
-                        <h2 class="section-title">Atualmente</h2>
-                        <div class="exp-list">
-                            <div class="exp-item">
-                                <span class="exp-date">jan/2026 – hoje</span>
-                                <div class="exp-body">
-                                    <strong class="exp-role">Secretário-Geral</strong>
-                                    <span class="exp-place">Grêmio Estudantil Paulo Freire · IFMA Imperatriz</span>
-                                </div>
-                            </div>
-                            <div class="exp-item">
-                                <span class="exp-date">2024 – hoje</span>
-                                <div class="exp-body">
-                                    <strong class="exp-role">Aluno Pesquisador · PIBIC</strong>
-                                    <span class="exp-place">Plantas Tóxicas &amp; Óleos Essenciais · IFMA</span>
-                                </div>
-                            </div>
-                            <div class="exp-item">
-                                <span class="exp-date">2024 – 2026</span>
-                                <div class="exp-body">
-                                    <strong class="exp-role">Técnico em Química · Ensino Médio Integrado</strong>
-                                    <span class="exp-place">IFMA · Campus Imperatriz</span>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                    <!-- Fluminense -->
-                    <section id="section-flu" class="section-block">
-                        <h2 class="section-title">Fluminense FC</h2>
-                        <div class="flu-card">
-                            <div class="flu-stripes" aria-hidden="true">
-                                <div class="flu-stripe flu-maroon"></div>
-                                <div class="flu-stripe flu-white"></div>
-                                <div class="flu-stripe flu-green"></div>
-                            </div>
-                            <div class="flu-body">
-                                <div class="flu-header">
-                                    <span class="flu-badge" aria-hidden="true">⚽</span>
-                                    <div>
-                                        <strong class="flu-name">Tricolor das Laranjeiras</strong>
-                                        <span class="flu-sub">Rio de Janeiro · fundado em 1902</span>
-                                    </div>
-                                </div>
-                                <div class="flu-honors">
-                                    <div class="flu-honor">
-                                        <span class="flu-honor-num">4×</span>
-                                        <span class="flu-honor-label">Brasileirão</span>
-                                    </div>
-                                    <div class="flu-honor">
-                                        <span class="flu-honor-num">1×</span>
-                                        <span class="flu-honor-label">Libertadores</span>
-                                    </div>
-                                    <div class="flu-honor">
-                                        <span class="flu-honor-num">1×</span>
-                                        <span class="flu-honor-label">Recopa</span>
-                                    </div>
-                                    <div class="flu-honor">
-                                        <span class="flu-honor-num">1×</span>
-                                        <span class="flu-honor-label">Intercontinental</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
-                </div><!-- /.bio-left-col -->
-
-                <!-- Coluna direita: Destaques -->
-                <div class="bio-right-col">
-
-                    <section id="section-highlights" class="section-block">
+                    <section id="section-highlights" class="section-block bio-highlights">
                         <h2 class="section-title">Destaques</h2>
                         <div class="cards-grid">
 
                             <div class="card card-clickable" role="button" tabindex="0" data-modal="gremio" aria-label="Ver timeline do Grêmio Estudantil">
-                                <span class="card-icon">🏛️</span>
+                                <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-landmark"></i></span>
                                 <div class="card-text">
                                     <strong>Secretário-Geral</strong>
                                     <span>Grêmio Estudantil Paulo Freire · IFMA Imperatriz</span>
@@ -208,7 +135,7 @@
                             </div>
 
                             <div class="card card-clickable" role="button" tabindex="0" data-modal="pesquisa" aria-label="Ver projetos de pesquisa">
-                                <span class="card-icon">🔬</span>
+                                <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-flask"></i></span>
                                 <div class="card-text">
                                     <strong>Aluno pesquisador · PIBIC</strong>
                                     <span>Plantas Tóxicas &amp; Óleos Essenciais</span>
@@ -218,7 +145,7 @@
                             </div>
 
                             <div class="card card-clickable" role="button" tabindex="0" data-modal="primeiro" aria-label="Ver galeria do 1º lugar">
-                                <span class="card-icon">🥇</span>
+                                <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-medal"></i></span>
                                 <div class="card-text">
                                     <strong>1º Lugar</strong>
                                     <span>Seminário de IC · IFMA 2025</span>
@@ -228,7 +155,7 @@
                             </div>
 
                             <div class="card card-clickable" role="button" tabindex="0" data-modal="terceiro" aria-label="Ver certificados do 3º lugar">
-                                <span class="card-icon">🥉</span>
+                                <span class="card-icon" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></span>
                                 <div class="card-text">
                                     <strong>3º Lugar</strong>
                                     <span>Olimpíada Brasileira de Geopolítica</span>
@@ -240,9 +167,105 @@
                         </div>
                     </section>
 
-                </div><!-- /.bio-right-col -->
+                    <!-- ── ATUALMENTE: sob a apresentação ── -->
+                    <section id="section-now" class="section-block bio-now">
+                        <h2 class="section-title">Atualmente</h2>
+                        <div class="now-timeline">
+                            <div class="now-tl-item">
+                                <span class="now-tl-date">jan/2026 – hoje</span>
+                                <strong class="now-tl-role">Secretário-Geral</strong>
+                                <span class="now-tl-place">Grêmio Estudantil Paulo Freire · IFMA Imperatriz</span>
+                            </div>
+                            <div class="now-tl-item">
+                                <span class="now-tl-date">2024 – hoje</span>
+                                <strong class="now-tl-role">Aluno Pesquisador · PIBIC</strong>
+                                <span class="now-tl-place">Plantas Tóxicas &amp; Óleos Essenciais · IFMA</span>
+                            </div>
+                            <div class="now-tl-item">
+                                <span class="now-tl-date">2024 – 2026</span>
+                                <strong class="now-tl-role">Técnico em Química</strong>
+                                <span class="now-tl-place">Ensino Médio Integrado · IFMA Imperatriz</span>
+                            </div>
+                        </div>
+                    </section>
 
-            </div><!-- /.bio-main-cols -->
+                </div><!-- /.bio-hero -->
+
+                <!-- ── RODAPÉ: Fluminense (feature) ── -->
+                <div class="bio-lower">
+
+                    <section id="section-flu" class="section-block bio-flu">
+                        <h2 class="section-title">Fluminense Football Club</h2>
+                        <div class="flu-card flu-feature">
+                            <div class="flu-stripes" aria-hidden="true">
+                                <div class="flu-stripe flu-maroon"></div>
+                                <div class="flu-stripe flu-white"></div>
+                                <div class="flu-stripe flu-green"></div>
+                            </div>
+                            <div class="flu-feature-body">
+
+                                <div class="flu-feature-main">
+                                    <div class="flu-header">
+                                        <span class="flu-badge" aria-hidden="true"><i class="fa-solid fa-futbol"></i></span>
+                                        <div>
+                                            <strong class="flu-name">Tricolor das Laranjeiras</strong>
+                                            <span class="flu-sub">Rio de Janeiro · fundado em 1902</span>
+                                        </div>
+                                    </div>
+                                    <p class="flu-about">
+                                        Um dos clubes mais tradicionais do Brasil, fundado em 21 de julho de 1902
+                                        no bairro das Laranjeiras. Tricolor de grená, branco e verde, manda seus
+                                        jogos no Maracanã. Campeão inédito da Libertadores em 2023 e da Recopa
+                                        Sul-Americana em 2024.
+                                    </p>
+                                    <div class="flu-facts">
+                                        <div class="flu-fact">
+                                            <span class="flu-fact-label">Fundação</span>
+                                            <strong class="flu-fact-value">1902</strong>
+                                        </div>
+                                        <div class="flu-fact">
+                                            <span class="flu-fact-label">Estádio</span>
+                                            <strong class="flu-fact-value">Maracanã</strong>
+                                        </div>
+                                        <div class="flu-fact">
+                                            <span class="flu-fact-label">Cores</span>
+                                            <strong class="flu-fact-value">Grená · Branco · Verde</strong>
+                                        </div>
+                                        <div class="flu-fact">
+                                            <span class="flu-fact-label">Clássico</span>
+                                            <strong class="flu-fact-value">Fla-Flu</strong>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flu-feature-side">
+                                    <span class="flu-honors-label">Principais títulos</span>
+                                    <div class="flu-honors flu-honors-col">
+                                        <div class="flu-honor">
+                                            <span class="flu-honor-num">4×</span>
+                                            <span class="flu-honor-label">Brasileirão</span>
+                                        </div>
+                                        <div class="flu-honor">
+                                            <span class="flu-honor-num">1×</span>
+                                            <span class="flu-honor-label">Libertadores · 2023</span>
+                                        </div>
+                                        <div class="flu-honor">
+                                            <span class="flu-honor-num">1×</span>
+                                            <span class="flu-honor-label">Recopa · 2024</span>
+                                        </div>
+                                        <div class="flu-honor">
+                                            <span class="flu-honor-num">1×</span>
+                                            <span class="flu-honor-label">Copa do Brasil · 2007</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+
+                </div><!-- /.bio-lower -->
+
             </main>
 
         </div>
@@ -255,7 +278,7 @@
             <header class="links-header">
                 <img class="avatar-sm" src="assets/img/foto2.png" alt="Arthur Gaspar">
                 <h2>Projetos &amp; Pesquisa</h2>
-                <p class="subtitle">Produções acadêmicas e científicas</p>
+                <p class="subtitle">Projetos científicos e tecnológicos</p>
             </header>
 
             <div class="proj-stats-row">
@@ -315,6 +338,52 @@
                     <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
                 </div>
             </div>
+
+            <div class="screen-section-divider">
+                <span>Projetos de Tecnologia</span>
+            </div>
+
+            <a href="projetos/skylix.html" class="proj-card proj-card-link" aria-label="Conhecer o projeto Skylix Network">
+                <div class="proj-card-meta">
+                    <span class="project-status status-active">Em desenvolvimento</span>
+                    <span class="project-period">2026 – presente</span>
+                    <span class="proj-type-badge">Projeto privado</span>
+                </div>
+                <h3 class="proj-card-title">Skylix Network</h3>
+                <p class="proj-card-desc">Rede de servidores Minecraft em desenvolvimento, construída com arquitetura modular, sistemas próprios e integração entre diferentes servidores e serviços.</p>
+                <div class="project-tags">
+                    <span class="project-tag"><span aria-hidden="true">☕</span> Java</span>
+                    <span class="project-tag"><span aria-hidden="true">🧩</span> Spigot</span>
+                    <span class="project-tag"><span aria-hidden="true">📦</span> Maven</span>
+                    <span class="project-tag"><span aria-hidden="true">⛏️</span> Minecraft</span>
+                    <span class="project-tag"><span aria-hidden="true">🗄️</span> Bancos de dados</span>
+                </div>
+                <div class="proj-card-footer">
+                    <span class="proj-card-note">Projeto privado em desenvolvimento</span>
+                    <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                </div>
+            </a>
+
+            <a href="projetos/mais-digital.html" class="proj-card proj-card-link" aria-label="Conhecer o projeto Mais Digital">
+                <div class="proj-card-meta">
+                    <span class="project-status status-active">Em desenvolvimento</span>
+                    <span class="project-period">2026 – presente</span>
+                    <span class="proj-type-badge">Projeto digital</span>
+                </div>
+                <h3 class="proj-card-title">Mais Digital</h3>
+                <p class="proj-card-desc">Plataforma voltada à gestão de clientes, serviços, pagamentos, tarefas, leads e relatórios para pequenos negócios.</p>
+                <div class="project-tags">
+                    <span class="project-tag"><span aria-hidden="true">🌐</span> HTML</span>
+                    <span class="project-tag"><span aria-hidden="true">🎨</span> CSS</span>
+                    <span class="project-tag"><span aria-hidden="true">⚙️</span> JavaScript</span>
+                    <span class="project-tag"><span aria-hidden="true">🗄️</span> Supabase</span>
+                    <span class="project-tag"><span aria-hidden="true">💳</span> Mercado Pago</span>
+                </div>
+                <div class="proj-card-footer">
+                    <span class="proj-card-note">Site, painel administrativo e automações</span>
+                    <i class="fa-solid fa-chevron-right card-arrow" aria-hidden="true"></i>
+                </div>
+            </a>
 
         </div>
     </div>
@@ -507,133 +576,253 @@
                         </a>
 
                     </nav>
-                </div>
 
-                <!-- ── Coluna 2: Trajetória ──────────────────────────── -->
-                <div class="hist-col">
-                    <p class="hist-col-label">Trajetória</p>
-                    <div class="timeline">
-                        <div class="tl-item">
-                            <span class="tl-date">2026</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">Aluno Pesquisador PIBIC/CNPq</strong>
-                                <p class="tl-desc">Avaliação da Atividade Antimicrobiana de Óleos Essenciais de Plantas "Venenosas" — Prof. Msc. Alielson Botelho Correa</p>
-                            </div>
+                    <div class="hist-resumo" aria-label="Resumo do histórico">
+                        <div class="resumo-stat">
+                            <span class="resumo-num">8</span>
+                            <span class="resumo-label">Marcos</span>
                         </div>
-                        <div class="tl-item">
-                            <span class="tl-date">mai/2026</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">🥉 3º Lugar · Olimpíada Brasileira de Geopolítica</strong>
-                                <button class="tl-cert-btn card-clickable" data-modal="terceiro" aria-label="Ver certificado OBG">
-                                    <img src="assets/img/certificado-obgp.jpg" alt="Certificado 3º Lugar OBG 2026" loading="lazy">
-                                    <span>Ver certificado</span>
-                                </button>
-                            </div>
+                        <div class="resumo-stat">
+                            <span class="resumo-num">9</span>
+                            <span class="resumo-label">Participações</span>
                         </div>
-                        <div class="tl-item">
-                            <span class="tl-date">abr/2026</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">46º Congresso da UBES (CONUBES)</strong>
-                                <p class="tl-desc">Representando o Grêmio Paulo Freire em São Bernardo do Campo – SP. Tema: Democracia e soberania.</p>
-                            </div>
+                        <div class="resumo-stat">
+                            <span class="resumo-num">2</span>
+                            <span class="resumo-label">Prêmios</span>
                         </div>
-                        <div class="tl-item">
-                            <span class="tl-date">jan/2026</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">Secretário-Geral · Grêmio Estudantil Paulo Freire</strong>
-                                <p class="tl-desc">Gestão, secretaria, atas e articulação com a direção do campus.</p>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <span class="tl-date">nov/2025</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">🥇 1º Lugar · Seminário de IC · área "Outros"</strong>
-                                <p class="tl-desc">Levantamento Botânico de Plantas Tóxicas no IFMA — Campus Imperatriz.</p>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <span class="tl-date">nov/2025</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">Universo IF</strong>
-                                <p class="tl-desc">Apresentação do Levantamento Botânico de Plantas Tóxicas.</p>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <span class="tl-date">2024–2025</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">Aluno Pesquisador PIBIC/CNPq</strong>
-                                <p class="tl-desc">Levantamento Botânico de Plantas Tóxicas — Orientadora: Prof.ª Dr.ª Patrícia Gobira.</p>
-                            </div>
-                        </div>
-                        <div class="tl-item">
-                            <span class="tl-date">2024</span>
-                            <div class="tl-content">
-                                <strong class="tl-title">Ingresso no IFMA</strong>
-                                <p class="tl-desc">Técnico em Química Integrado ao Ensino Médio · Campus Imperatriz – MA.</p>
-                            </div>
-                        </div>
+                    </div>
+
+                    <div class="hist-note">
+                        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                        <span>IFMA · Campus Imperatriz · desde 2024</span>
                     </div>
                 </div>
 
-                <!-- ── Coluna 3: Participações Acadêmicas ────────────── -->
+                <!-- ── Coluna 2: Trajetória (interativa) ─────────────── -->
                 <div class="hist-col">
+                    <p class="hist-col-label">Trajetória</p>
+                    <ol class="traj" id="traj">
+
+                        <li class="traj-item" style="--i:0">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">2026</span>
+                                    <span class="traj-title">Aluno Pesquisador · PIBIC/CNPq</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Avaliação da Atividade Antimicrobiana de Óleos Essenciais de Plantas "Venenosas" — Prof. Msc. Alielson Botelho Correa.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:1">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">mai/2026</span>
+                                    <span class="traj-title"><i class="fa-solid fa-medal traj-medal bronze" aria-hidden="true"></i> 3º Lugar · Olimpíada Brasileira de Geopolítica</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Terceiro lugar na Olimpíada Brasileira de Geopolítica de 2026.</p>
+                                    <button class="tl-cert-btn card-clickable" data-modal="terceiro" aria-label="Ver certificado OBG">
+                                        <img src="assets/img/certificado-obgp.jpg" alt="Certificado 3º Lugar OBG 2026" loading="lazy">
+                                        <span>Ver certificado</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:2">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">abr/2026</span>
+                                    <span class="traj-title">46º Congresso da UBES (CONUBES)</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Representando o Grêmio Paulo Freire em São Bernardo do Campo – SP. Tema: Democracia e soberania.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:3">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">jan/2026</span>
+                                    <span class="traj-title">Secretário-Geral · Grêmio Estudantil Paulo Freire</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Gestão, secretaria, atas e articulação com a direção do campus.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:4">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">nov/2025</span>
+                                    <span class="traj-title"><i class="fa-solid fa-medal traj-medal gold" aria-hidden="true"></i> 1º Lugar · Seminário de IC · área "Outros"</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Levantamento Botânico de Plantas Tóxicas no IFMA — Campus Imperatriz.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:5">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">nov/2025</span>
+                                    <span class="traj-title">Universo IF</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Apresentação do Levantamento Botânico de Plantas Tóxicas.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:6">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">2024–2025</span>
+                                    <span class="traj-title">Aluno Pesquisador · PIBIC/CNPq</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Levantamento Botânico de Plantas Tóxicas — Orientadora: Prof.ª Dr.ª Patrícia Gobira.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="traj-item" style="--i:7">
+                            <button class="traj-head" type="button" aria-expanded="false">
+                                <span class="traj-node" aria-hidden="true"></span>
+                                <span class="traj-meta">
+                                    <span class="traj-date">2024</span>
+                                    <span class="traj-title">Ingresso no IFMA</span>
+                                </span>
+                                <i class="fa-solid fa-chevron-down traj-chevron" aria-hidden="true"></i>
+                            </button>
+                            <div class="traj-panel">
+                                <div class="traj-panel-inner">
+                                    <p class="traj-desc">Técnico em Química Integrado ao Ensino Médio · Campus Imperatriz – MA.</p>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ol>
+                </div>
+
+                <!-- ── Coluna 3: Participações Acadêmicas (filtrável) ── -->
+                <div class="hist-col hist-col-parts">
                     <p class="hist-col-label">Participações Acadêmicas</p>
-                    <div id="part-list" class="part-list open" aria-hidden="false">
 
-                        <div class="year-group">
-                            <span class="year-label">2026</span>
-                            <ul>
-                                <li>
-                                    <span class="ptype congresso">Congresso</span>
-                                    Congresso da União Brasileira de Estudantes Secundaristas
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="parts-filters" id="parts-filters" role="tablist" aria-label="Filtrar participações">
+                        <button class="parts-filter active" type="button" data-filter="all" aria-selected="true">Todas <span class="pf-count">9</span></button>
+                        <button class="parts-filter" type="button" data-filter="congresso" aria-selected="false">Congressos <span class="pf-count">2</span></button>
+                        <button class="parts-filter" type="button" data-filter="seminario" aria-selected="false">Seminários <span class="pf-count">5</span></button>
+                        <button class="parts-filter" type="button" data-filter="oficina" aria-selected="false">Oficinas <span class="pf-count">2</span></button>
+                    </div>
 
-                        <div class="year-group">
-                            <span class="year-label">2025</span>
-                            <ul>
-                                <li>
-                                    <span class="ptype congresso">Congresso</span>
-                                    Universo IF — Levantamento Botânico de Plantas Tóxicas no IFMA
-                                </li>
-                                <li>
-                                    <span class="ptype seminario">Seminário</span>
-                                    <span class="prize-badge">🥇 1º Lugar</span>
-                                    Seminário de IC — Levantamento Botânico de Plantas Tóxicas no IFMA
-                                </li>
-                                <li>
-                                    <span class="ptype seminario">Seminário</span>
-                                    Semana Interdisciplinar de Meio Ambiente e Química
-                                </li>
-                                <li>
-                                    <span class="ptype seminario">Seminário</span>
-                                    Construção do PPP do IFMA — Campus Imperatriz
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="parts-list" id="parts-list">
 
-                        <div class="year-group">
-                            <span class="year-label">2024</span>
-                            <ul>
-                                <li>
-                                    <span class="ptype oficina">Oficina</span>
-                                    Seminário de IC: Técnicas de Resolução de Problemas Matemáticos
-                                </li>
-                                <li>
-                                    <span class="ptype oficina">Oficina</span>
-                                    Seminário de IC: Desenvolvendo seu próprio assistente pessoal com Gemini
-                                </li>
-                                <li>
-                                    <span class="ptype seminario">Seminário</span>
-                                    Seminário de Iniciação Científica
-                                </li>
-                                <li>
-                                    <span class="ptype seminario">Seminário</span>
-                                    Semana Interdisciplinar de Meio Ambiente e Química 2024
-                                </li>
-                            </ul>
-                        </div>
+                        <article class="part-card" data-type="congresso">
+                            <div class="part-top">
+                                <span class="part-badge congresso">Congresso</span>
+                                <span class="part-year">2026</span>
+                            </div>
+                            <p class="part-name">Congresso da União Brasileira de Estudantes Secundaristas</p>
+                        </article>
+
+                        <article class="part-card" data-type="seminario">
+                            <div class="part-top">
+                                <span class="part-badge seminario">Seminário</span>
+                                <span class="part-prize"><i class="fa-solid fa-medal" aria-hidden="true"></i> 1º Lugar</span>
+                                <span class="part-year">2025</span>
+                            </div>
+                            <p class="part-name">Seminário de IC — Levantamento Botânico de Plantas Tóxicas no IFMA</p>
+                        </article>
+
+                        <article class="part-card" data-type="congresso">
+                            <div class="part-top">
+                                <span class="part-badge congresso">Congresso</span>
+                                <span class="part-year">2025</span>
+                            </div>
+                            <p class="part-name">Universo IF — Levantamento Botânico de Plantas Tóxicas no IFMA</p>
+                        </article>
+
+                        <article class="part-card" data-type="seminario">
+                            <div class="part-top">
+                                <span class="part-badge seminario">Seminário</span>
+                                <span class="part-year">2025</span>
+                            </div>
+                            <p class="part-name">Semana Interdisciplinar de Meio Ambiente e Química</p>
+                        </article>
+
+                        <article class="part-card" data-type="seminario">
+                            <div class="part-top">
+                                <span class="part-badge seminario">Seminário</span>
+                                <span class="part-year">2025</span>
+                            </div>
+                            <p class="part-name">Construção do PPP do IFMA — Campus Imperatriz</p>
+                        </article>
+
+                        <article class="part-card" data-type="oficina">
+                            <div class="part-top">
+                                <span class="part-badge oficina">Oficina</span>
+                                <span class="part-year">2024</span>
+                            </div>
+                            <p class="part-name">Seminário de IC: Técnicas de Resolução de Problemas Matemáticos</p>
+                        </article>
+
+                        <article class="part-card" data-type="oficina">
+                            <div class="part-top">
+                                <span class="part-badge oficina">Oficina</span>
+                                <span class="part-year">2024</span>
+                            </div>
+                            <p class="part-name">Seminário de IC: Desenvolvendo seu próprio assistente pessoal com Gemini</p>
+                        </article>
+
+                        <article class="part-card" data-type="seminario">
+                            <div class="part-top">
+                                <span class="part-badge seminario">Seminário</span>
+                                <span class="part-year">2024</span>
+                            </div>
+                            <p class="part-name">Seminário de Iniciação Científica</p>
+                        </article>
+
+                        <article class="part-card" data-type="seminario">
+                            <div class="part-top">
+                                <span class="part-badge seminario">Seminário</span>
+                                <span class="part-year">2024</span>
+                            </div>
+                            <p class="part-name">Semana Interdisciplinar de Meio Ambiente e Química 2024</p>
+                        </article>
 
                     </div>
                 </div>
