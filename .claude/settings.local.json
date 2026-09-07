@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(where python *)",
+      "Bash(where python3 *)",
+      "Bash(where py *)",
+      "mcp__Claude_Preview__preview_start",
+      "PowerShell(node --version)",
+      "PowerShell(npx --version)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\User\\\\Documents\\\\Github\\\\Site\\\\gaspararthur.github.io\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object @{N='Arquivo';E={$_.FullName.Replace\\('C:\\\\Users\\\\User\\\\Documents\\\\Github\\\\Site\\\\gaspararthur.github.io\\\\',''\\)}} | Format-Table -AutoSize)",
+      "PowerShell(Get-Command npx -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command node -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command python3 -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\nodejs\" -ErrorAction SilentlyContinue | Select-Object Name -First 5; Get-ChildItem \"$env:APPDATA\\\\npm\" -ErrorAction SilentlyContinue | Select-Object Name -First 5)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\User\\\\Documents\\\\Github\\\\Site\\\\gaspararthur.github.io\\\\index.html\")",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\User\\\\Videos\\\\Captures\\\\Home _ Luca Azalim - Brave 2026-06-25 01-38-40.mp4\")",
+      "PowerShell(& \"C:\\\\Program Files\\\\VideoLAN\\\\VLC\\\\vlc.exe\" \"C:\\\\Users\\\\User\\\\Videos\\\\Captures\\\\Home _ Luca Azalim - Brave 2026-06-25 01-38-40.mp4\")",
+      "PowerShell(Start-Process \"brave\" \"C:\\\\Users\\\\User\\\\Documents\\\\Github\\\\Site\\\\gaspararthur.github.io\\\\index.html\")",
+      "PowerShell(Get-Command python -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Command py -ErrorAction SilentlyContinue)",
+      "Bash(command -v python python3 py node npm npx)",
+      "Bash(perl -e \"use HTTP::Server::Simple; print 'ok'\")",
+      "Bash(perl --version)",
+      "Bash(perl -MIO::Socket::INET -e \"print 'ok'\")",
+      "Bash(which busybox *)",
+      "Bash(ls /c/Users/User/AppData/Local/Programs/ 2>/dev/null | head -20; ls /c/Python* 2>/dev/null; which py 2>/dev/null)",
+      "PowerShell(Get-Command python, python3, py, node, npm, npx, php -ErrorAction SilentlyContinue)",
+      "PowerShell([System.Net.HttpListener]::new\\(\\) | Select-Object IsListening; Write-Host \"HttpListener is available\")",
+      "WebSearch"
+    ]
+  }
+}

@@ -1195,7 +1195,8 @@ header {
     letter-spacing: 0.04em;
 }
 
-.status-active { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
+.status-active { background: rgba(34,197,94,0.12); color: #f1ce05; border: 1px solid rgba(34,197,94,0.3); }
+.status-working { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
 .status-soon   { background: rgba(100,100,100,0.12); color: #666; border: 1px solid #2a2a2a; }
 
 .project-period { font-size: 0.68rem; color: #555; }

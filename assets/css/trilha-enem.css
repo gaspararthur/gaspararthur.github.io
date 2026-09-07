@@ -1,0 +1,701 @@
+/* =========================================================
+   TRILHA ENEM — ESTILOS ESPECÍFICOS DA PÁGINA DO PROJETO
+   Carregar DEPOIS de project-pages.css
+   ========================================================= */
+
+.trilha-enem-project {
+    --trilha-accent: #00a6b2;
+    --trilha-accent-hover: #08b7c3;
+    --trilha-green: #04a187;
+    --trilha-surface: #0d0d0d;
+    --trilha-surface-hover: #0f0f0f;
+    --trilha-border: #202020;
+}
+
+/* HERO */
+
+.trilha-enem-project .trilha-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 1.7rem;
+    background:
+        radial-gradient(circle at 12% 0%, rgba(0, 154, 166, 0.11), transparent 34%),
+        radial-gradient(circle at 100% 100%, rgba(4, 161, 135, 0.06), transparent 30%),
+        rgba(17, 17, 17, 0.95);
+    border-left-width: 3px;
+}
+
+.trilha-enem-project .trilha-hero::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    top: -260px;
+    left: 15%;
+    pointer-events: none;
+    border: 1px solid rgba(0, 154, 166, 0.08);
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        rgba(0, 166, 178, 0.12),
+        transparent 68%
+    );
+}
+
+.trilha-enem-project .project-header-main,
+.trilha-enem-project .project-header-aside {
+    position: relative;
+    z-index: 1;
+}
+
+.trilha-enem-project .project-page-header h1 {
+    max-width: 720px;
+    margin-top: 0.4rem;
+    font-size: clamp(2rem, 4.2vw, 3.15rem);
+    letter-spacing: -0.055em;
+}
+
+.trilha-enem-project .project-summary {
+    max-width: 720px;
+    color: #929292;
+    font-size: 0.92rem;
+    line-height: 1.72;
+}
+
+/* CTAs */
+
+.trilha-enem-project .project-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.25rem;
+}
+
+.trilha-enem-project .project-cta {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.68rem 0.9rem;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    line-height: 1;
+    text-decoration: none;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.trilha-enem-project .project-cta:hover {
+    transform: translateY(-1px);
+}
+
+.trilha-enem-project .project-cta:focus-visible {
+    outline: 2px solid #00b4c0;
+    outline-offset: 3px;
+}
+
+.trilha-enem-project .project-cta-primary {
+    color: #031416;
+    background: var(--trilha-accent);
+    border-color: var(--trilha-accent);
+}
+
+.trilha-enem-project .project-cta-primary:hover {
+    color: #031416;
+    background: var(--trilha-accent-hover);
+    border-color: var(--trilha-accent-hover);
+}
+
+.trilha-enem-project .project-cta-secondary {
+    color: #999;
+    background: rgba(255, 255, 255, 0.018);
+    border-color: #292929;
+}
+
+.trilha-enem-project .project-cta-secondary:hover {
+    color: #ddd;
+    background: rgba(255, 255, 255, 0.035);
+    border-color: #444;
+}
+
+/* META / STATUS */
+
+.trilha-enem-project .project-meta-item {
+    transition:
+        border-color 0.18s ease,
+        background 0.18s ease;
+}
+
+.trilha-enem-project .project-meta-item:hover {
+    background: #101010;
+    border-color: #2a2a2a;
+}
+
+.trilha-enem-project .project-status-text {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.trilha-enem-project .status-dot {
+    width: 6px;
+    height: 6px;
+    flex: 0 0 6px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.08);
+}
+
+/* SEÇÕES */
+
+.trilha-enem-project .project-section {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.006), transparent 34%),
+        rgba(17, 17, 17, 0.93);
+}
+
+.trilha-enem-project .project-section-heading {
+    align-items: flex-end;
+}
+
+.trilha-enem-project .project-section-heading > div {
+    min-width: 0;
+}
+
+.trilha-enem-project .project-section-kicker {
+    display: inline-block;
+    margin-bottom: 0.3rem;
+}
+
+.trilha-enem-project .project-section-heading h2 {
+    font-size: 1.08rem;
+}
+
+/* FAIXA DE INDICADORES */
+
+.trilha-enem-project .trilha-stat-strip {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 0.85rem;
+    overflow: hidden;
+    background: rgba(17, 17, 17, 0.93);
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+}
+
+.trilha-enem-project .trilha-stat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.9rem 1rem;
+}
+
+.trilha-enem-project .trilha-stat:not(:last-child) {
+    border-right: 1px solid #1d1d1d;
+}
+
+.trilha-enem-project .trilha-stat strong {
+    color: #dedede;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.92rem;
+    font-weight: 400;
+}
+
+.trilha-enem-project .trilha-stat span {
+    color: #575757;
+    font-size: 0.65rem;
+}
+
+/* VISÃO GERAL */
+
+.trilha-enem-project .trilha-overview-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.trilha-enem-project .trilha-overview-card {
+    position: relative;
+    min-height: 175px;
+    padding: 1rem;
+    background: var(--trilha-surface);
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+}
+
+.trilha-enem-project .trilha-card-number {
+    display: block;
+    margin-bottom: 1.6rem;
+    color: #009aa6;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.66rem;
+}
+
+.trilha-enem-project .trilha-overview-card h3 {
+    margin-bottom: 0.5rem;
+    color: #d5d5d5;
+    font-size: 0.82rem;
+}
+
+.trilha-enem-project .trilha-overview-card p {
+    color: #696969;
+    font-size: 0.73rem;
+    line-height: 1.65;
+}
+
+/* RECURSOS */
+
+.trilha-enem-project .trilha-feature-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.trilha-enem-project .trilha-feature-card {
+    position: relative;
+    min-height: 175px;
+    overflow: hidden;
+    padding: 1rem;
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+.trilha-enem-project .trilha-feature-card:hover {
+    transform: translateY(-2px);
+    background: var(--trilha-surface-hover);
+    border-color: #303030;
+    border-top-color: rgba(0, 154, 166, 0.55);
+}
+
+.trilha-enem-project .trilha-feature-card::after {
+    content: "";
+    position: absolute;
+    right: -35px;
+    bottom: -38px;
+    width: 90px;
+    height: 90px;
+    pointer-events: none;
+    border: 1px solid rgba(0, 154, 166, 0.06);
+    border-radius: 50%;
+}
+
+.trilha-enem-project .trilha-feature-card--wide {
+    grid-column: span 2;
+}
+
+.trilha-enem-project .trilha-card-icon {
+    display: inline-flex;
+    width: 29px;
+    height: 29px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: #009aa6;
+    background: rgba(0, 154, 166, 0.055);
+    border: 1px solid rgba(0, 154, 166, 0.23);
+    border-radius: 6px;
+    font-size: 0.72rem;
+}
+
+.trilha-enem-project .trilha-feature-card h3 {
+    margin-bottom: 0.45rem;
+    font-size: 0.82rem;
+}
+
+.trilha-enem-project .trilha-feature-card p {
+    max-width: 560px;
+}
+
+/* FLUXO */
+
+.trilha-enem-project .trilha-flow {
+    gap: 1.35rem;
+}
+
+.trilha-enem-project .trilha-flow li {
+    min-height: 78px;
+    justify-content: flex-start;
+    padding: 0.9rem;
+    text-align: left;
+    border-top: 2px solid #242424;
+    transition:
+        border-color 0.18s ease,
+        background 0.18s ease;
+}
+
+.trilha-enem-project .trilha-flow li:hover {
+    background: var(--trilha-surface-hover);
+    border-top-color: rgba(0, 154, 166, 0.55);
+}
+
+.trilha-enem-project .trilha-flow li span {
+    display: flex;
+    flex-direction: column;
+    gap: 0.28rem;
+}
+
+.trilha-enem-project .trilha-flow li b {
+    color: #009aa6;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.63rem;
+    font-weight: 400;
+}
+
+/* ARQUITETURA */
+
+.trilha-enem-project .trilha-architecture {
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr)
+        auto
+        minmax(0, 1fr);
+    align-items: stretch;
+    gap: 0.55rem;
+}
+
+.trilha-enem-project .trilha-architecture-node {
+    display: flex;
+    min-height: 115px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.85rem;
+    background: var(--trilha-surface);
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+}
+
+.trilha-enem-project .trilha-architecture-node > span {
+    margin-bottom: 0.45rem;
+    color: #009aa6;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.59rem;
+    text-transform: uppercase;
+}
+
+.trilha-enem-project .trilha-architecture-node strong {
+    color: #cacaca;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.trilha-enem-project .trilha-architecture-node small {
+    margin-top: 0.35rem;
+    color: #545454;
+    font-size: 0.62rem;
+    line-height: 1.45;
+}
+
+.trilha-enem-project .trilha-architecture-arrow {
+    display: flex;
+    align-items: center;
+    color: #009aa6;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.8rem;
+}
+
+/* DESAFIOS */
+
+.trilha-enem-project .trilha-challenges-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.trilha-enem-project .trilha-challenge-card {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 0.8rem;
+    padding: 0.9rem;
+    background: var(--trilha-surface);
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+}
+
+.trilha-enem-project .trilha-challenge-card > i {
+    margin-top: 0.1rem;
+    color: #009aa6;
+    font-size: 0.8rem;
+}
+
+.trilha-enem-project .trilha-challenge-card h3 {
+    margin-bottom: 0.35rem;
+    color: #ccc;
+    font-size: 0.76rem;
+}
+
+.trilha-enem-project .trilha-challenge-card p {
+    color: #626262;
+    font-size: 0.7rem;
+    line-height: 1.55;
+}
+
+/* STATUS DO PROJETO */
+
+.trilha-enem-project .trilha-status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.trilha-enem-project .trilha-status-card {
+    min-width: 0;
+    padding: 0.95rem;
+    background: var(--trilha-surface);
+    border: 1px solid #1e1e1e;
+    border-radius: 8px;
+}
+
+.trilha-enem-project .trilha-status-label {
+    display: block;
+    margin-bottom: 1rem;
+    color: #009aa6;
+    font-family: "Courier Prime", monospace;
+    font-size: 0.59rem;
+    text-transform: uppercase;
+}
+
+.trilha-enem-project .trilha-status-card h3 {
+    margin-bottom: 0.45rem;
+    color: #cecece;
+    font-size: 0.78rem;
+}
+
+.trilha-enem-project .trilha-status-card p {
+    color: #626262;
+    font-size: 0.7rem;
+    line-height: 1.55;
+}
+
+/* GALERIA */
+
+.trilha-enem-project .project-placeholder {
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease;
+}
+
+.trilha-enem-project .project-placeholder:hover {
+    transform: translateY(-2px);
+    border-color: #292929;
+}
+
+.trilha-enem-project .project-placeholder-media {
+    height: 138px;
+}
+
+.trilha-enem-project .project-placeholder img {
+    height: 190px;
+    opacity: 0.88;
+    filter: saturate(0.8);
+    transition:
+        opacity 0.25s ease,
+        filter 0.25s ease,
+        transform 0.25s ease;
+}
+
+.trilha-enem-project .project-placeholder:hover img {
+    opacity: 1;
+    filter: saturate(1);
+    transform: scale(1.012);
+}
+
+/* CTA FINAL */
+
+.trilha-enem-project .trilha-final-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 1.4rem 1.5rem;
+    background:
+        radial-gradient(
+            circle at 85% 0%,
+            rgba(0, 154, 166, 0.11),
+            transparent 35%
+        ),
+        #101010;
+    border: 1px solid #212121;
+    border-left: 2px solid #009aa6;
+    border-radius: 10px;
+}
+
+.trilha-enem-project .trilha-final-cta h2 {
+    margin-top: 0.35rem;
+    color: #e5e5e5;
+    font-size: 1rem;
+}
+
+.trilha-enem-project .trilha-final-cta p {
+    margin-top: 0.35rem;
+    color: #626262;
+    font-size: 0.7rem;
+}
+
+.trilha-enem-project .trilha-footer-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 960px) {
+    .trilha-enem-project .trilha-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .trilha-enem-project .trilha-feature-card--wide {
+        grid-column: auto;
+    }
+
+    .trilha-enem-project .trilha-overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .trilha-enem-project .trilha-overview-card {
+        min-height: 0;
+    }
+
+    .trilha-enem-project .trilha-card-number {
+        margin-bottom: 0.8rem;
+    }
+
+    .trilha-enem-project .trilha-architecture {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .trilha-enem-project .trilha-architecture-arrow {
+        display: none;
+    }
+
+    .trilha-enem-project .trilha-status-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 740px) {
+    .trilha-enem-project .trilha-hero {
+        padding: 1.25rem;
+    }
+
+    .trilha-enem-project .project-page-header h1 {
+        font-size: clamp(2rem, 10vw, 2.65rem);
+    }
+
+    .trilha-enem-project .project-section-heading {
+        align-items: flex-start;
+    }
+
+    .trilha-enem-project .trilha-stat-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .trilha-enem-project .trilha-stat:nth-child(2) {
+        border-right: 0;
+    }
+
+    .trilha-enem-project .trilha-stat:nth-child(-n + 2) {
+        border-bottom: 1px solid #1d1d1d;
+    }
+
+    .trilha-enem-project .trilha-final-cta {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .trilha-enem-project .trilha-hero {
+        padding: 1rem;
+    }
+
+    .trilha-enem-project .project-summary {
+        font-size: 0.82rem;
+        line-height: 1.62;
+    }
+
+    .trilha-enem-project .project-cta-row {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .trilha-enem-project .project-cta {
+        width: 100%;
+    }
+
+    .trilha-enem-project .trilha-feature-grid,
+    .trilha-enem-project .trilha-challenges-grid,
+    .trilha-enem-project .trilha-status-grid,
+    .trilha-enem-project .trilha-architecture {
+        grid-template-columns: 1fr;
+    }
+
+    .trilha-enem-project .trilha-feature-card--wide {
+        grid-column: auto;
+    }
+
+    .trilha-enem-project .trilha-feature-card {
+        min-height: 0;
+        padding: 0.9rem;
+    }
+
+    .trilha-enem-project .trilha-status-card {
+        padding: 0.9rem;
+    }
+
+    .trilha-enem-project .trilha-flow {
+        gap: 1.2rem;
+    }
+
+    .trilha-enem-project .trilha-flow li {
+        min-height: 62px;
+    }
+
+    .trilha-enem-project .project-placeholder img {
+        height: 170px;
+    }
+
+    .trilha-enem-project .trilha-footer-links {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.45rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .trilha-enem-project .trilha-stat-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .trilha-enem-project .trilha-stat {
+        border-right: 0 !important;
+        border-bottom: 1px solid #1d1d1d;
+    }
+
+    .trilha-enem-project .trilha-stat:last-child {
+        border-bottom: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .trilha-enem-project .project-cta,
+    .trilha-enem-project .trilha-feature-card,
+    .trilha-enem-project .trilha-flow li,
+    .trilha-enem-project .project-placeholder,
+    .trilha-enem-project .project-placeholder img {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}

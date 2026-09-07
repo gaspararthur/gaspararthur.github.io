@@ -90,6 +90,16 @@ body.project-detail #top-nav {
     text-transform: uppercase;
 }
 
+.project-link,
+.project-section-kicker,
+.project-tech-label {
+    color: #04a187;
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
 .project-page-header h1 {
     margin-top: 0.35rem;
     color: #f1f1f1;
