@@ -1435,10 +1435,6 @@ header {
     transition: grid-template-rows 0.32s var(--ease-out);
 }
 
-.traj-head[aria-expanded="true"] + .traj-panel {
-  display: block;
-}
-
 .traj-item.active .traj-panel { grid-template-rows: 1fr; }
 
 .traj-panel-inner {
