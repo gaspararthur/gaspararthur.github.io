@@ -3,7 +3,11 @@
 
 /* ── Design tokens ─────────────────────────────────────── */
 :root {
-    --accent: #009aa6;
+    /* texto — contraste medido sobre #111 (cards) */
+    --text-1: #ededed;   /* primário   16,0:1 */
+    --text-2: #a8a8a8;   /* secundário  7,9:1 */
+    --text-3: #8c8c8c;   /* metadados   5,4:1 */
+    --accent: #009aa6;   /* interativo / ativo, 5,5:1 */
     --accent-strong: #16b8c6;
     --app-max: 1440px;
     --ease-out: cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -25,7 +29,7 @@
 html, body {
     font-family: 'Inter', sans-serif;
     background-color: #0a0a0a;
-    color: #e7e7e7;
+    color: var(--text-1);
     height: 100%;
     overflow: hidden;
 }
@@ -56,7 +60,7 @@ html, body {
 }
 
 .nav-brand {
-    font-size: 0.88rem;
+    font-size: 0.875rem;
     font-weight: 600;
     color: #fff;
     letter-spacing: -0.02em;
@@ -71,10 +75,10 @@ html, body {
 
 /* ── Fluminense tag ──────────────────────────────────────── */
 .tag-flu {
-    font-size: 0.68rem;
+    font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.03em;
-    color: #f5f5f5;
+    color: var(--text-1);
     background:
         linear-gradient(#111, #111) padding-box,
         linear-gradient(90deg, #7A263A, #F5F5F5, #006437) border-box;
@@ -107,7 +111,7 @@ html, body {
     background: transparent;
     color: #009aa6;
     font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -133,9 +137,9 @@ html, body {
     border-radius: 6px;
     border: 1px solid #222;
     background: transparent;
-    color: #666;
+    color: var(--text-3);
     font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -143,7 +147,7 @@ html, body {
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
-#btn-blog:hover { background: rgba(255,255,255,0.04); border-color: #333; color: #aaa; }
+#btn-blog:hover { background: rgba(255,255,255,0.04); border-color: #333; color: var(--text-2); }
 #btn-blog:focus-visible { outline: 2px solid #009aa6; outline-offset: 2px; }
 
 /* ── Botão secundário (Habilidades) ────────────────────── */
@@ -155,9 +159,9 @@ html, body {
     border-radius: 6px;
     border: 1px solid #222;
     background: transparent;
-    color: #666;
+    color: var(--text-3);
     font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -165,7 +169,7 @@ html, body {
     transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
-#btn-skills:hover { background: rgba(255,255,255,0.04); border-color: #333; color: #aaa; }
+#btn-skills:hover { background: rgba(255,255,255,0.04); border-color: #333; color: var(--text-2); }
 #btn-skills.active { color: #009aa6; border-color: rgba(0,154,166,0.4); background: rgba(0,154,166,0.06); }
 #btn-skills:focus-visible { outline: 2px solid #009aa6; outline-offset: 2px; }
 
@@ -233,8 +237,8 @@ header {
 }
 
 .subtitle {
-    font-size: 0.78rem;
-    color: #555;
+    font-size: 0.75rem;
+    color: var(--text-3);
     letter-spacing: 0.03em;
 }
 
@@ -250,12 +254,13 @@ header {
 }
 
 .tag {
-    font-size: 0.68rem;
-    padding: 3px 9px;
+    font-size: 0.6875rem;
+    padding: 3px 10px;
     border-radius: 20px;
-    background: rgba(0,154,166,0.1);
-    border: 1px solid rgba(0,154,166,0.3);
-    color: #009aa6;
+    /* informativo, não interativo: neutro (ciano fica reservado a ações e estado ativo) */
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #262626;
+    color: var(--text-2);
     font-weight: 500;
     letter-spacing: 0.03em;
     white-space: nowrap;
@@ -266,18 +271,18 @@ header {
     text-align: left;
     font-size: 1rem;
     line-height: 1.8;
-    color: #999;
+    color: var(--text-2);
 }
 
 /* ── Seções ─────────────────────────────────────────────── */
 .section-block { width: 100%; }
 
 .section-title {
-    font-size: 0.68rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: #7a7a7a;
+    color: var(--text-3);
     margin-bottom: 0.9rem;
     padding-bottom: 0.55rem;
     border-bottom: 1px solid #1a1a1a;
@@ -302,7 +307,7 @@ header {
 .bio-greeting {
     font-size: 1.9rem;
     font-weight: 600;
-    color: #f0f0f0;
+    color: var(--text-1);
     line-height: 1.15;
     letter-spacing: -0.025em;
 }
@@ -345,21 +350,21 @@ header {
 
 .now-tl-date {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     letter-spacing: 0.02em;
-    color: #7d7d7d;
+    color: var(--text-3);
 }
 
 .now-tl-role {
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     font-weight: 600;
-    color: #e8e8e8;
+    color: var(--text-1);
     line-height: 1.3;
 }
 
 .now-tl-place {
-    font-size: 0.8rem;
-    color: #8a8a8a;
+    font-size: 0.8125rem;
+    color: var(--text-3);
     line-height: 1.45;
 }
 
@@ -398,7 +403,7 @@ header {
     background: rgba(0,154,166,0.1);
     border: 1px solid rgba(0,154,166,0.22);
     color: #16b8c6;
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
 }
 
 .aprov-text {
@@ -410,17 +415,17 @@ header {
 }
 
 .aprov-text strong {
-    font-size: 0.86rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #e4e4e4;
+    color: var(--text-1);
     line-height: 1.3;
 }
 
 .aprov-text span {
-    font-size: 0.68rem;
+    font-size: 0.6875rem;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: #6e6e6e;
+    color: var(--text-3);
 }
 
 .aprov-check {
@@ -438,9 +443,9 @@ header {
 }
 
 .flu-about {
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     line-height: 1.65;
-    color: #9a9a9a;
+    color: var(--text-2);
     margin-top: 0.9rem;
 }
 
@@ -462,24 +467,24 @@ header {
 }
 
 .flu-fact-label {
-    font-size: 0.58rem;
+    font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.07em;
-    color: #6e6e6e;
+    color: var(--text-3);
 }
 
 .flu-fact-value {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #cfcfcf;
 }
 
 .flu-honors-label {
     display: block;
-    font-size: 0.6rem;
+    font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #6e6e6e;
+    color: var(--text-3);
     margin-bottom: 0.65rem;
 }
 
@@ -498,7 +503,7 @@ header {
     text-align: left;
     text-transform: none;
     letter-spacing: 0.01em;
-    font-size: 0.74rem;
+    font-size: 0.75rem;
     color: #a0a0a0;
 }
 
@@ -518,15 +523,15 @@ header {
     background: rgba(0,154,166,0.07);
     border: 1px solid rgba(0,154,166,0.18);
     border-radius: 5px;
-    font-size: 0.78rem;
-    color: #bbb;
+    font-size: 0.75rem;
+    color: var(--text-2);
     font-family: 'Courier Prime', monospace;
 }
 
 .tech-anno {
     color: #e0844a;
     font-family: 'Inter', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -579,8 +584,8 @@ header {
 .card-clickable:focus-visible { outline: 2px solid #009aa6; outline-offset: 2px; }
 
 .card-arrow {
-    font-size: 0.55rem;
-    color: #333;
+    font-size: 0.6875rem;
+    color: var(--text-3);
     margin-left: auto;
     margin-top: 3px;
     flex-shrink: 0;
@@ -603,7 +608,7 @@ header {
     border-radius: 7px;
     background: rgba(0,154,166,0.09);
     color: #16b8c6;
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     margin-top: 1px;
 }
 
@@ -615,30 +620,30 @@ header {
 }
 
 .card-text strong {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #ededed;
+    color: var(--text-1);
     line-height: 1.3;
 }
 
 .card-text span {
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     color: #8c8c8c;
     line-height: 1.4;
 }
 
 .card-meta {
-    font-size: 0.73rem !important;
-    color: #6e6e6e !important;
+    font-size: 0.75rem !important;
+    color: var(--text-3) !important;
 }
 
 /* ── Linguagens ─────────────────────────────────────────── */
 .lang-group-label {
-    font-size: 0.65rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #3a3a3a;
+    color: var(--text-3);
     margin-bottom: 0.5rem;
 }
 
@@ -650,7 +655,7 @@ header {
 
 .lang-chip {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     padding: 5px 13px;
     border-radius: 6px;
     background: #111;
@@ -693,18 +698,18 @@ header {
 }
 
 .lang-spoken-text strong {
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     font-weight: 600;
-    color: #ddd;
+    color: var(--text-1);
 }
 
 .lang-spoken-text span {
-    font-size: 0.7rem;
-    color: #555;
+    font-size: 0.6875rem;
+    color: var(--text-3);
 }
 
 .lang-level {
-    font-size: 0.62rem;
+    font-size: 0.6875rem;
     font-weight: 700;
     padding: 2px 8px;
     border-radius: 4px;
@@ -728,13 +733,14 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 5px 11px;
+    min-height: 32px;
+    padding: 5px 12px;
     border-radius: 20px;
-    border: 1px solid #222;
+    border: 1px solid #262626;
     background: transparent;
-    color: #8a8a8a;
+    color: var(--text-2);
     font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 500;
     cursor: pointer;
     transition: color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), background 0.2s var(--ease-out);
@@ -743,7 +749,7 @@ header {
 .parts-filter.active { color: #041416; background: #009aa6; border-color: #009aa6; }
 .parts-filter:focus-visible { outline: 2px solid #009aa6; outline-offset: 2px; }
 
-.pf-count { font-size: 0.64rem; font-variant-numeric: tabular-nums; opacity: 0.7; }
+.pf-count { font-size: 0.6875rem; font-variant-numeric: tabular-nums; opacity: 0.7; }
 
 .parts-list {
     display: flex;
@@ -782,7 +788,7 @@ header {
 }
 
 .part-badge {
-    font-size: 0.6rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -797,21 +803,21 @@ header {
     display: inline-flex;
     align-items: center;
     gap: 3px;
-    font-size: 0.64rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: #d4a017;
 }
-.part-prize i { font-size: 0.6rem; }
+.part-prize i { font-size: 0.6875rem; }
 
 .part-year {
     margin-left: auto;
     font-family: 'Courier Prime', monospace;
-    font-size: 0.66rem;
-    color: #6e6e6e;
+    font-size: 0.6875rem;
+    color: var(--text-3);
 }
 
 .part-name {
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     color: #c4c4c4;
     line-height: 1.5;
 }
@@ -848,16 +854,16 @@ header {
 .resumo-num {
     font-size: 1.35rem;
     font-weight: 700;
-    color: #ededed;
+    color: var(--text-1);
     line-height: 1;
     font-variant-numeric: tabular-nums;
 }
 
 .resumo-label {
-    font-size: 0.56rem;
+    font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #7a7a7a;
+    color: var(--text-3);
     text-align: center;
 }
 
@@ -870,10 +876,10 @@ header {
     background: #0d0d0d;
     border: 1px solid #1a1a1a;
     border-radius: 8px;
-    font-size: 0.7rem;
-    color: #8a8a8a;
+    font-size: 0.6875rem;
+    color: var(--text-3);
 }
-.hist-note i { color: #009aa6; font-size: 0.72rem; flex-shrink: 0; }
+.hist-note i { color: #009aa6; font-size: 0.75rem; flex-shrink: 0; }
 
 /* ── Header da tela de links / habilidades ──────────────── */
 .links-header {
@@ -926,10 +932,17 @@ header {
 }
 
 .skill-icon {
-    font-size: 1.3rem;
-    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
-    margin-top: 1px;
+    border-radius: 9px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #232323;
+    color: var(--text-2);
+    font-size: 0.875rem;
 }
 
 .skill-body {
@@ -939,15 +952,15 @@ header {
 }
 
 .skill-body strong {
-    font-size: 0.8rem;
+    font-size: 0.8125rem;
     font-weight: 600;
-    color: #ddd;
+    color: var(--text-1);
     line-height: 1.3;
 }
 
 .skill-body span {
-    font-size: 0.71rem;
-    color: #666;
+    font-size: 0.6875rem;
+    color: var(--text-3);
     line-height: 1.45;
 }
 
@@ -957,8 +970,8 @@ header {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    color: #333;
-    font-size: 0.68rem;
+    color: var(--text-3);
+    font-size: 0.6875rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     font-weight: 600;
@@ -1004,10 +1017,10 @@ header {
 }
 
 .hist-col-label {
-    font-size: 0.6rem;
+    font-size: 0.6875rem;
     text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #444;
+    color: var(--text-3);
     font-weight: 600;
     border-bottom: 1px solid #1e1e1e;
     padding-bottom: 0.6rem;
@@ -1062,11 +1075,11 @@ header {
 .link-name {
     flex: 1;
     padding: 13px 16px;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 500;
     display: flex;
     align-items: center;
-    color: #e0e0e0;
+    color: var(--text-1);
 }
 
 /* ── Modal Overlay ───────────────────────────────────────── */
@@ -1133,8 +1146,8 @@ header {
     border-radius: 50%;
     border: 1px solid #222;
     background: #1a1a1a;
-    color: #777;
-    font-size: 0.85rem;
+    color: var(--text-3);
+    font-size: 0.875rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -1160,8 +1173,8 @@ header {
 }
 
 .modal-subtitle {
-    font-size: 0.78rem;
-    color: #555;
+    font-size: 0.75rem;
+    color: var(--text-3);
     margin-bottom: 1.4rem;
     line-height: 1.5;
 }
@@ -1188,7 +1201,7 @@ header {
 }
 
 .project-status {
-    font-size: 0.62rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     padding: 2px 8px;
     border-radius: 4px;
@@ -1197,21 +1210,21 @@ header {
 
 .status-active { background: rgba(34,197,94,0.12); color: #f1ce05; border: 1px solid rgba(34,197,94,0.3); }
 .status-working { background: rgba(34,197,94,0.12); color: #22c55e; border: 1px solid rgba(34,197,94,0.3); }
-.status-soon   { background: rgba(100,100,100,0.12); color: #666; border: 1px solid #2a2a2a; }
+.status-soon   { background: rgba(100,100,100,0.12); color: var(--text-3); border: 1px solid #2a2a2a; }
 
-.project-period { font-size: 0.68rem; color: #555; }
+.project-period { font-size: 0.6875rem; color: var(--text-3); }
 
 .project-name {
-    font-size: 0.88rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #ddd;
+    color: var(--text-1);
     margin-bottom: 6px;
     line-height: 1.4;
 }
 
 .project-desc {
-    font-size: 0.78rem;
-    color: #777;
+    font-size: 0.75rem;
+    color: var(--text-3);
     line-height: 1.6;
     margin-bottom: 10px;
 }
@@ -1224,12 +1237,12 @@ header {
 }
 
 .project-tag {
-    font-size: 0.65rem;
+    font-size: 0.6875rem;
     padding: 2px 8px;
     border-radius: 4px;
-    background: rgba(0,154,166,0.08);
-    border: 1px solid rgba(0,154,166,0.2);
-    color: #009aa6;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid #262626;
+    color: var(--text-2);
 }
 
 .project-footer {
@@ -1242,8 +1255,8 @@ header {
     flex-wrap: wrap;
 }
 
-.project-advisor { font-size: 0.68rem; color: #555; }
-.project-type    { font-size: 0.65rem; color: #444; font-weight: 600; letter-spacing: 0.04em; }
+.project-advisor { font-size: 0.6875rem; color: var(--text-3); }
+.project-type    { font-size: 0.6875rem; color: var(--text-3); font-weight: 600; letter-spacing: 0.04em; }
 
 /* ── Timeline (padrão — modais) ─────────────────────────── */
 .timeline {
@@ -1295,7 +1308,7 @@ header {
 
 .tl-date {
     display: block;
-    font-size: 0.65rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
@@ -1303,20 +1316,20 @@ header {
     margin-bottom: 3px;
 }
 
-.tl-future .tl-date { color: #444; }
+.tl-future .tl-date { color: var(--text-3); }
 
 .tl-title {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #ddd;
+    color: var(--text-1);
     margin-bottom: 4px;
     line-height: 1.3;
 }
 
 .tl-desc {
-    font-size: 0.76rem;
-    color: #666;
+    font-size: 0.75rem;
+    color: var(--text-3);
     line-height: 1.55;
 }
 
@@ -1398,30 +1411,30 @@ header {
 
 .traj-date {
     font-family: 'Courier Prime', monospace;
-    font-size: 0.66rem;
+    font-size: 0.6875rem;
     letter-spacing: 0.02em;
-    color: #6e6e6e;
+    color: var(--text-3);
     transition: color 0.25s var(--ease-out);
 }
 .traj-item.active .traj-date { color: #16b8c6; }
 
 .traj-title {
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     font-weight: 600;
     color: #bcbcbc;
     line-height: 1.35;
     transition: color 0.25s var(--ease-out);
 }
 .traj-item.active .traj-title,
-.traj-head:hover .traj-title { color: #ededed; }
+.traj-head:hover .traj-title { color: var(--text-1); }
 
-.traj-medal { font-size: 0.72rem; margin-right: 2px; }
+.traj-medal { font-size: 0.75rem; margin-right: 2px; }
 .traj-medal.gold   { color: #d4a017; }
 .traj-medal.bronze { color: #c67b46; }
 
 .traj-chevron {
-    font-size: 0.6rem;
-    color: #444;
+    font-size: 0.6875rem;
+    color: var(--text-3);
     margin-top: 0.35rem;
     flex-shrink: 0;
     transition: transform 0.3s var(--ease-out), color 0.25s var(--ease-out);
@@ -1451,8 +1464,8 @@ header {
 }
 
 .traj-desc {
-    font-size: 0.76rem;
-    color: #8a8a8a;
+    font-size: 0.75rem;
+    color: var(--text-3);
     line-height: 1.6;
 }
 
@@ -1468,7 +1481,7 @@ header {
 }
 
 /* item em destaque (aprovação no vestibular) */
-.traj-cap { font-size: 0.78rem; color: #16b8c6; margin-right: 3px; }
+.traj-cap { font-size: 0.75rem; color: #16b8c6; margin-right: 3px; }
 .traj-featured .traj-node { border-color: #009aa6; background: rgba(0,154,166,0.3); }
 .traj-featured.active .traj-node { background: #009aa6; }
 
@@ -1480,7 +1493,7 @@ header {
 }
 
 .traj-course {
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 500;
     color: #cfe9ec;
     padding: 4px 10px;
@@ -1533,8 +1546,8 @@ header {
     align-items: center;
     justify-content: center;
     gap: 8px;
-    color: #333;
-    font-size: 0.72rem;
+    color: var(--text-3);
+    font-size: 0.75rem;
     transition: border-color 0.2s, background 0.2s;
 }
 
@@ -1546,15 +1559,15 @@ header {
     display: flex;
     align-items: center;
     gap: 7px;
-    font-size: 0.73rem;
-    color: #444;
+    font-size: 0.75rem;
+    color: var(--text-3);
     padding: 10px 12px;
     background: #0d0d0d;
     border-radius: 6px;
     border: 1px solid #1a1a1a;
 }
 
-.gallery-note i { color: #009aa6; font-size: 0.8rem; }
+.gallery-note i { color: #009aa6; font-size: 0.8125rem; }
 
 /* ── Gallery slot com imagem real ────────────────────────── */
 .gallery-slot-img {
@@ -1581,7 +1594,7 @@ header {
     position: absolute;
     bottom: 0; left: 0; right: 0;
     padding: 5px 8px;
-    font-size: 0.65rem;
+    font-size: 0.6875rem;
     font-weight: 500;
     color: #fff;
     background: linear-gradient(transparent, rgba(0,0,0,0.72));
@@ -1615,7 +1628,7 @@ header {
 }
 
 .tl-cert-btn span {
-    font-size: 0.7rem;
+    font-size: 0.6875rem;
     color: #009aa6;
     font-weight: 500;
     letter-spacing: 0.03em;
@@ -1640,7 +1653,7 @@ header {
     gap: 12px;
 }
 
-.cert-medal { font-size: 1.8rem; }
+.cert-medal { font-size: 1.6rem; color: #c67b46; }
 
 .cert-header-text {
     display: flex;
@@ -1649,26 +1662,26 @@ header {
 }
 
 .cert-header-text strong {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #ddd;
+    color: var(--text-1);
 }
 
 .cert-header-text span {
     font-size: 0.75rem;
-    color: #666;
+    color: var(--text-3);
 }
 
 .cert-body { border-top: 1px solid #1a1a1a; padding-top: 10px; }
 
 .cert-name {
-    font-size: 0.85rem;
+    font-size: 0.875rem;
     font-weight: 600;
-    color: #bbb;
+    color: var(--text-2);
     margin-bottom: 2px;
 }
 
-.cert-year { font-size: 0.72rem; color: #555; }
+.cert-year { font-size: 0.75rem; color: var(--text-3); }
 
 .cert-slot {
     aspect-ratio: unset;
@@ -1687,7 +1700,7 @@ header {
     border-radius: 50%;
     border: 1px solid #2a2a2a;
     background: #111;
-    color: #555;
+    color: var(--text-3);
     font-size: 0.75rem;
     cursor: pointer;
     display: flex;
@@ -1775,19 +1788,19 @@ header {
 }
 
 .spotify-status {
-    font-size: 0.62rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: #1DB954;
 }
 
-.spotify-status.last-played { color: #555; }
+.spotify-status.last-played { color: var(--text-3); }
 
 .spotify-track {
-    font-size: 0.82rem;
+    font-size: 0.8125rem;
     font-weight: 600;
-    color: #e0e0e0;
+    color: var(--text-1);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1795,8 +1808,8 @@ header {
 }
 
 .spotify-artist {
-    font-size: 0.72rem;
-    color: #666;
+    font-size: 0.75rem;
+    color: var(--text-3);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1840,11 +1853,11 @@ header {
     font-variant-numeric: tabular-nums;
 }
 
-.stat-icon { font-size: 0.9rem; margin-top: 4px; }
+.stat-icon { font-size: 0.8125rem; margin-top: 6px; color: var(--text-3); }
 
 .stat-label {
-    font-size: 0.7rem;
-    color: #555;
+    font-size: 0.6875rem;
+    color: var(--text-3);
     line-height: 1.3;
 }
 
@@ -1852,8 +1865,8 @@ header {
     display: flex;
     align-items: center;
     gap: 7px;
-    font-size: 0.72rem;
-    color: #333;
+    font-size: 0.75rem;
+    color: var(--text-3);
     margin-top: 1rem;
     padding: 9px 12px;
     background: #0d0d0d;
@@ -1861,23 +1874,23 @@ header {
     border: 1px solid #1a1a1a;
 }
 
-.stats-hint i { color: #009aa6; font-size: 0.78rem; }
+.stats-hint i { color: #009aa6; font-size: 0.75rem; }
 
 /* ── Contador de visitantes ─────────────────────────────── */
 .visitor-bar {
     display: flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.72rem;
-    color: #333;
+    font-size: 0.75rem;
+    color: var(--text-3);
     padding: 6px 0 2px;
 }
 
-.visitor-bar i { font-size: 0.68rem; color: #2a2a2a; }
+.visitor-bar i { font-size: 0.6875rem; color: #2a2a2a; }
 
 #visitor-count {
     font-weight: 600;
-    color: #3a3a3a;
+    color: var(--text-3);
     font-variant-numeric: tabular-nums;
 }
 
@@ -1894,11 +1907,11 @@ header {
 .bio-id { display: flex; flex-direction: column; gap: 0.2rem; }
 
 .bio-title {
-    font-size: 0.68rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #8a8a8a;
+    color: var(--text-3);
 }
 
 .bio-content {
@@ -1915,8 +1928,8 @@ header {
     align-items: center;
     gap: 0.7rem;
     padding: 0.45rem 0;
-    font-size: 0.82rem;
-    color: #666;
+    font-size: 0.8125rem;
+    color: var(--text-3);
     text-decoration: none;
     transition: color 0.18s;
 }
@@ -1930,7 +1943,7 @@ header {
 }
 
 .sidebar-link:hover,
-.sidebar-link.active { color: #e7e7e7; }
+.sidebar-link.active { color: var(--text-1); }
 
 .sidebar-link:hover::before,
 .sidebar-link.active::before { color: #009aa6; }
@@ -1939,10 +1952,10 @@ header {
     display: none;
     align-items: center;
     gap: 0.45rem;
-    font-size: 0.65rem;
+    font-size: 0.6875rem;
     letter-spacing: 0.07em;
     text-transform: uppercase;
-    color: #555;
+    color: var(--text-3);
     border: 1px solid #1e1e1e;
     border-radius: 4px;
     padding: 0.35rem 0.65rem;
@@ -1951,7 +1964,7 @@ header {
 
 .now-square {
     color: #22c55e;
-    font-size: 0.55rem;
+    font-size: 0.6875rem;
     line-height: 1;
     flex-shrink: 0;
 }
@@ -1972,8 +1985,8 @@ header {
     border: 1px solid #1e1e1e;
     border-radius: 6px;
     background: #111;
-    color: #444;
-    font-size: 0.78rem;
+    color: var(--text-3);
+    font-size: 0.75rem;
     text-decoration: none;
     transition: color 0.18s, border-color 0.18s;
 }
@@ -2022,22 +2035,22 @@ header {
     border-radius: 8px;
     background: rgba(122,38,58,0.14);
     color: #b8546a;
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     line-height: 1;
     flex-shrink: 0;
 }
 
 .flu-name {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-weight: 700;
-    color: #e7e7e7;
+    color: var(--text-1);
     letter-spacing: -0.02em;
 }
 
 .flu-sub {
-    font-size: 0.72rem;
-    color: #8a8a8a;
+    font-size: 0.75rem;
+    color: var(--text-3);
 }
 
 .flu-honors {
@@ -2060,13 +2073,13 @@ header {
 .flu-honor-num {
     font-size: 1rem;
     font-weight: 700;
-    color: #7A263A;
+    color: #c95b75; /* grená clareado: 4,7:1 sobre #111 (o #7A263A dava 2,0:1) */
     font-variant-numeric: tabular-nums;
 }
 
 .flu-honor-label {
-    font-size: 0.6rem;
-    color: #7d7d7d;
+    font-size: 0.6875rem;
+    color: var(--text-3);
     text-transform: uppercase;
     letter-spacing: 0.04em;
     text-align: center;
@@ -2079,7 +2092,7 @@ header {
     .gallery-grid { grid-template-columns: 1fr; }
     .stats-grid   { grid-template-columns: 1fr 1fr; }
     #name { font-size: 1.3rem; }
-    .intro { font-size: 0.88rem; }
+    .intro { font-size: 0.875rem; }
     #top-nav { padding-inline: 0.7rem; }
     .nav-actions { gap: 5px; }
     #btn-blog,
@@ -2176,7 +2189,7 @@ header {
     /* Intro com borda esquerda */
     #screen-bio .intro {
         text-align: left;
-        color: #9a9a9a;
+        color: var(--text-2);
         border-left: 2px solid #1c1c1c;
         padding-left: 1.1rem;
         font-size: 1rem;
@@ -2219,16 +2232,16 @@ header {
     border-radius: 6px;
     border: 1px solid #222;
     background: transparent;
-    color: #666;
+    color: var(--text-3);
     font-family: 'Inter', sans-serif;
-    font-size: 0.72rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     cursor: pointer;
     transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
-#btn-projects:hover { background: rgba(255,255,255,0.04); border-color: #333; color: #aaa; }
+#btn-projects:hover { background: rgba(255,255,255,0.04); border-color: #333; color: var(--text-2); }
 #btn-projects.active { color: #009aa6; border-color: rgba(0,154,166,0.4); background: rgba(0,154,166,0.06); }
 
 /* ── Tela Projetos ───────────────────────────────────────── */
@@ -2261,8 +2274,8 @@ header {
 }
 
 .proj-stat-label {
-    font-size: 0.62rem;
-    color: #555;
+    font-size: 0.6875rem;
+    color: var(--text-3);
     text-transform: uppercase;
     letter-spacing: 0.04em;
 }
@@ -2297,8 +2310,8 @@ header {
 }
 
 .proj-card-note {
-    color: #555;
-    font-size: 0.7rem;
+    color: var(--text-3);
+    font-size: 0.6875rem;
     line-height: 1.4;
 }
 
@@ -2306,7 +2319,7 @@ header {
 
 #screen-projects .screen-section-divider {
     margin: 0.2rem 0 -0.15rem;
-    color: #444;
+    color: var(--text-3);
 }
 
 .proj-card-meta {
@@ -2317,27 +2330,27 @@ header {
 }
 
 .proj-type-badge {
-    font-size: 0.62rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     padding: 2px 8px;
     border-radius: 4px;
-    background: rgba(0,154,166,0.1);
-    border: 1px solid rgba(0,154,166,0.22);
-    color: #009aa6;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid #2a2a2a;
+    color: var(--text-1);
     letter-spacing: 0.04em;
     margin-left: auto;
 }
 
 .proj-card-title {
-    font-size: 0.95rem;
+    font-size: 0.9375rem;
     font-weight: 600;
-    color: #e0e0e0;
+    color: var(--text-1);
     line-height: 1.4;
 }
 
 .proj-card-desc {
-    font-size: 0.78rem;
-    color: #666;
+    font-size: 0.75rem;
+    color: var(--text-3);
     line-height: 1.6;
 }
 
@@ -2348,19 +2361,19 @@ header {
 }
 
 .proj-award-badge {
-    font-size: 0.7rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: #d4a017;
 }
 
 /* status-done (projeto finalizado) */
-.status-done { background: rgba(160,160,160,0.1); color: #888; border: 1px solid rgba(160,160,160,0.2); }
+.status-done { background: rgba(160,160,160,0.1); color: var(--text-2); border: 1px solid rgba(160,160,160,0.2); }
 
 /* ── Modal Projetos ──────────────────────────────────────── */
 .proj-modal-top { margin-bottom: 10px; }
 
 .proj-award-banner {
-    font-size: 0.78rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: #d4a017;
     background: rgba(212,160,23,0.08);
@@ -2373,11 +2386,11 @@ header {
 .proj-modal-section { margin-bottom: 12px; }
 
 .proj-modal-label {
-    font-size: 0.68rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #444;
+    color: var(--text-3);
     margin-bottom: 6px;
 }
 
@@ -2390,8 +2403,8 @@ header {
 }
 
 .proj-steps li {
-    font-size: 0.78rem;
-    color: #777;
+    font-size: 0.75rem;
+    color: var(--text-3);
     line-height: 1.5;
     padding-left: 14px;
     position: relative;
@@ -2435,7 +2448,7 @@ header {
     border-radius: 50%;
     border: 1px solid #2a2a2a;
     background: #111;
-    color: #555;
+    color: var(--text-3);
     font-size: 0.75rem;
     cursor: pointer;
     display: flex;
@@ -2483,14 +2496,18 @@ header {
 .td-yellow { background: #ffbd2e; }
 .td-green  { background: #27c93f; }
 
-.terminal-title { flex: 1; font-size: 0.68rem; color: #3a3a3a; text-align: center; }
+.terminal-title { flex: 1; font-size: 0.6875rem; color: var(--text-3); text-align: center; }
 
 #terminal-close {
-    background: none; border: none; color: #2e2e2e;
-    cursor: pointer; font-size: 0.82rem; line-height: 1; padding: 0 2px;
-    transition: color 0.15s;
+    background: none; border: none; color: var(--text-3);
+    cursor: pointer; font-size: 0.8125rem; line-height: 1;
+    min-width: 28px; min-height: 28px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
 }
-#terminal-close:hover { color: #888; }
+#terminal-close:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+#terminal-close:hover { color: var(--text-2); }
 
 .terminal-output {
     flex: 1;
@@ -2504,14 +2521,14 @@ header {
     min-height: 0;
 }
 
-.t-line { font-size: 0.78rem; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
+.t-line { font-size: 0.75rem; line-height: 1.55; white-space: pre-wrap; word-break: break-word; }
 .t-green  { color: #27c93f; }
 .t-cyan   { color: #009aa6; }
-.t-dim    { color: #3a3a3a; }
+.t-dim    { color: var(--text-3); }
 .t-white  { color: #ccc; }
 .t-red    { color: #ff5f56; }
 .t-yellow { color: #ffbd2e; }
-.t-cmd    { color: #e0e0e0; }
+.t-cmd    { color: var(--text-1); }
 
 .terminal-input-row {
     display: flex;
@@ -2526,8 +2543,8 @@ header {
 .t-prompt { color: #009aa6; font-size: 0.75rem; white-space: nowrap; flex-shrink: 0; }
 .terminal-input {
     flex: 1; background: none; border: none; outline: none;
-    color: #e0e0e0; font-family: 'Courier Prime', monospace;
-    font-size: 0.78rem; caret-color: #009aa6;
+    color: var(--text-1); font-family: 'Courier Prime', monospace;
+    font-size: 0.75rem; caret-color: #009aa6;
 }
 
 /* ── Voltar ao topo ──────────────────────────────────────── */
@@ -2541,8 +2558,8 @@ header {
     border-radius: 50%;
     border: 1px solid #2a2a2a;
     background: #111;
-    color: #555;
-    font-size: 0.7rem;
+    color: var(--text-3);
+    font-size: 0.6875rem;
     cursor: pointer;
     display: flex;
     align-items: center;
