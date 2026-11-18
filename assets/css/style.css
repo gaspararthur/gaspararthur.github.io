@@ -100,7 +100,7 @@ html, body {
 
 /* ── Botão principal (Mais informações) ─────────────────── */
 #btn-switch {
-    animation: pulseInfo 1.8s infinite;
+    animation: pulseInfo 3s ease-out infinite;
     box-shadow: 0 0 0 rgba(0, 154, 166, 0.7);
     display: flex;
     align-items: center;
@@ -119,10 +119,11 @@ html, body {
     transition: background 0.2s, border-color 0.2s, color 0.2s;
 }
 
+/* pulso discreto: só um anel suave, sem crescer o botão */
 @keyframes pulseInfo {
-    0%   { transform: scale(1);    box-shadow: 0 0 0 0 rgba(0, 154, 166, 0.55); }
-    70%  { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(0, 154, 166, 0); }
-    100% { transform: scale(1);    box-shadow: 0 0 0 0 rgba(0, 154, 166, 0); }
+    0%   { box-shadow: 0 0 0 0 rgba(0, 154, 166, 0.28); }
+    70%  { box-shadow: 0 0 0 6px rgba(0, 154, 166, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 154, 166, 0); }
 }
 
 #btn-switch:hover { background: rgba(0,154,166,0.1); border-color: #009aa6; }
@@ -2213,7 +2214,7 @@ header {
     .now-timeline { grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
 
     /* Aprovações: 3 cursos lado a lado */
-    .aprov-grid { grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+    .aprov-grid { grid-template-columns: repeat(2, 1fr); gap: 0.9rem; }
 
     /* Rodapé: Fluminense feature em largura total, corpo em 2 colunas */
     .flu-feature-body {
